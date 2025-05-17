@@ -14,18 +14,18 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #2f2f2f; /* Fundal gri închis pentru întreaga pagină */
-      color: #f4f4f4; /* Text deschis pentru contrast */
+      background-color: #2f2f2f;
+      color: #f4f4f4;
       line-height: 1.6;
     }
 
     .header {
-      background-color: #1a1a1a; /* Gri mai închis pentru header */
+      background-color: #1a1a1a;
       color: white;
       padding: 30px 20px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-bottom: 4px solid #f2b601; /* Detaliu auriu pentru un contrast frumos */
+      border-bottom: 4px solid #f2b601;
       letter-spacing: 1px;
     }
 
@@ -36,11 +36,34 @@
       margin: 0;
     }
 
+    .button-wrapper {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 16px 30px;
+      background-color: #0b3d91;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover {
+      background-color: #4CAF50;
+      transform: scale(1.05);
+    }
+
     .content {
       padding: 50px 40px;
       max-width: 1200px;
       margin: 40px auto;
-      background-color: #3a3a3a; /* Fundal mai deschis pentru conținut */
+      background-color: #3a3a3a;
       border-radius: 12px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
@@ -56,7 +79,7 @@
     }
 
     .update-box {
-      background-color: #4d4d4d; /* Fundal mai deschis pentru fiecare update */
+      background-color: #4d4d4d;
       border-radius: 12px;
       padding: 40px;
       margin-bottom: 40px;
@@ -71,7 +94,7 @@
 
     .update-box h3 {
       font-size: 2.5em;
-      color: #f2b601; /* Detaliu auriu pentru titlurile update-urilor */
+      color: #f2b601;
       margin-bottom: 20px;
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -90,32 +113,11 @@
 
     .update-box ul li:before {
       content: "• ";
-      color: #f2b601; /* Detaliu auriu */
+      color: #f2b601;
     }
 
-    .back-link {
-      display: inline-block;
-      padding: 18px 35px;
-      background-color: #0b3d91;
-      color: white;
-      text-decoration: none;
-      font-size: 1.2em;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      margin-top: 40px;
-      text-align: center;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .back-link:hover {
-      background-color: #4CAF50;
-      transform: scale(1.05);
-    }
-
-    /* Parallax style */
     .parallax {
-      background-image: url('https://media.discordapp.net/attachments/1153942954650648657/1373153848079810600/image.png'); /* Imagine de fundal pentru parallax */
+      background-image: url('https://media.discordapp.net/attachments/1153942954650648657/1373153848079810600/image.png');
       height: 400px;
       background-position: center;
       background-attachment: fixed;
@@ -123,7 +125,6 @@
       filter: brightness(60%);
     }
 
-    /* Mobile responsiveness */
     @media screen and (max-width: 768px) {
       .content {
         padding: 30px 20px;
@@ -159,9 +160,14 @@
     <h1>Update-uri Recente 0.1</h1>
   </div>
 
-  <!-- Content -->
+  <!-- Conținutul principal -->
   <div class="content">
-    <!-- Update 1 - 15/05/2025 -->
+
+    <!-- Buton centrat deasupra update-ului -->
+    <div class="button-wrapper">
+      <a href="index.html" class="back-link">Înapoi la Shop</a>
+    </div>
+
     <div class="update-box">
       <h3>📦 Update Chest Mafii - 15/05/2025</h3>
       <p>Am adăugat chesturi pentru fiecare mafie!</p>
@@ -201,9 +207,6 @@
       <p>💬 Dacă mai observați probleme sau aveți idei, deschideți un ticket – feedback-ul vostru contează enorm!</p>
       <p>🎉 Mulțumim că sunteți alături de noi pe Ecstasy Romania – serverul continuă să crească cu ajutorul comunității! 💜</p>
     </div>
-
-    <!-- Link pentru a reveni la pagina principală -->
-    <a href="index.html" class="back-link">Înapoi la Shop</a>
   </div>
 
 </body>
