@@ -3,48 +3,244 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aplicații</title>
-  <link rel="stylesheet" href="style.css" />
-  
-  <!-- Favicon cu logo-ul corect -->
-  <link rel="icon" href="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" type="image/png" />
-
+  <title>Aplicații ECSTASY</title>
   <style>
-    /* Stil pentru logo în bara laterală */
-    .sidebar img {
-      width: 80%;
-      max-width: 200px;
-      height: auto;
+    body {
+      background-color: #1c1c1c;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin-left: 260px;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    form {
+      background-color: #2e2e2e;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    label {
       display: block;
-      margin: 20px auto;
+      margin-top: 10px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      background-color: #444;
+      color: white;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn-respinge {
+      background-color: #f44336;
+      margin-left: 10px;
+    }
+
+    .aplicatie {
+      background-color: #2e2e2e;
+      margin-top: 20px;
+      padding: 15px;
+      border-left: 4px solid #4CAF50;
+      border-radius: 8px;
+    }
+
+    .rol {
+      font-style: italic;
+      color: #aaa;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>ECSTASY</h2>
-    <!-- Logo în bara laterală -->
-    <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
-    <ul>
-      <li><a href="index.html">Shop</a></li> <!-- Link pentru Shop -->
-      <li><a href="regulament.html">Regulament</a></li> <!-- Link pentru Regulament -->
-      <li><a href="aplicatii.html">Aplicații</a></li> <!-- Link pentru Aplicații -->
-    </ul>
-  </div>
 
-  <div class="main">
-    <header>
-      <h1>Aplicații</h1>
-    </header>
+  <h1>Trimite Aplicație</h1>
+  <form id="aplicatieForm">
+    <h2>Informații Out of Character (OOC)</h2>
+    <label for="nume_ooc">Nume:</label>
+    <input type="text" id="nume_ooc" required>
 
-    <!-- Secțiune Aplicații -->
-    <section id="aplicatii">
-      <h2>Aplicație Poliție</h2>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNQ8dHTPYdZV7VnSKNV4nReQBGQ-qREgO7F3ef6qIcfdmHfg/viewform" target="_blank" class="btn">Aplică aici</a>
+    <label for="varsta_ooc">Vârstă:</label>
+    <input type="number" id="varsta_ooc" required>
 
-      <h2>Aplicație SMURD</h2>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNQ8dHTPYdZV7VnSKNV4nReQBGQ-qREgO7F3ef6qIcfdmHfg/viewform" target="_blank" class="btn">Aplică aici</a>
-    </section>
-  </div>
+    <label for="descriere_ooc">Descriere personală:</label>
+    <textarea id="descriere_ooc" required></textarea>
+
+    <h2>Informații In Character (IC)</h2>
+    <label for="nume_ic">Nume (IC):</label>
+    <input type="text" id="nume_ic" required>
+
+    <label for="varsta_ic">Vârstă (IC):</label>
+    <input type="number" id="varsta_ic" required>
+
+    <label for="descriere_ic">Descriere personală (IC):</label>
+    <textarea id="descriere_ic" required></textarea>
+
+    <label for="motivatie_ic">De ce dorești să faci parte din acest departament (IC):</label>
+    <textarea id="motivatie_ic" required></textarea>
+
+    <label for="capabilitate_ic">Te consideri capabil pentru acest job (IC):</label>
+    <textarea id="capabilitate_ic" required></textarea>
+
+    <label for="departament">Departament:</label>
+    <select id="departament" required>
+      <option value="Poliție">Poliție</option>
+      <option value="SMURD">SMURD</option>
+    </select>
+
+    <button type="submit">Trimite Aplicația</button>
+  </form>
+
+  <h2>Aplicații Publice</h2>
+  <div id="listaAplicatii"></div>
+
+  <script>
+    const form = document.getElementById("aplicatieForm");
+    const listaAplicatii = document.getElementById("listaAplicatii");
+    let aplicatii = JSON.parse(localStorage.getItem("aplicatii")) || [];
+
+    // Functie de afisare aplicatii
+    function afiseazaAplicatii(departament, admin = false) {
+      listaAplicatii.innerHTML = "";
+      const aplicatiiFiltrate = aplicatii.filter(a => a.departament === departament && (admin || a.status === "aprobat"));
+
+      if (!aplicatiiFiltrate.length) {
+        listaAplicatii.innerHTML = "<p style='text-align:center;'>Nicio aplicație disponibilă.</p>";
+        return;
+      }
+
+      aplicatiiFiltrate.forEach((a, i) => {
+        const div = document.createElement("div");
+        div.className = "aplicatie";
+        div.innerHTML = `
+          <h3>${a.nume_ooc} - ${a.nume_ic}</h3>
+          <div class="rol">Departament: ${a.departament}</div>
+          <p><strong>Nume (OOC):</strong> ${a.nume_ooc}</p>
+          <p><strong>Vârstă (OOC):</strong> ${a.varsta_ooc}</p>
+          <p><strong>Descriere (OOC):</strong> ${a.descriere_ooc}</p>
+          <hr>
+          <p><strong>Nume (IC):</strong> ${a.nume_ic}</p>
+          <p><strong>Vârstă (IC):</strong> ${a.varsta_ic}</p>
+          <p><strong>Descriere (IC):</strong> ${a.descriere_ic}</p>
+          <p><strong>Motivație:</strong> ${a.motivatie_ic}</p>
+          <p><strong>Capabilitate:</strong> ${a.capabilitate_ic}</p>
+          <p class="status">Status: ${a.status === "respins" ? "❌ Respinsă" : (a.status === "aprobat" ? "✅ Aprobată" : "⏳ În așteptare")}</p>
+        `;
+
+        // Admin (parola + tasta pentru aprobare/retragere aplicații)
+        if (admin && a.status === "in_asteptare") {
+          const btnAproba = document.createElement("button");
+          btnAproba.textContent = "Aprobă aplicația";
+          btnAproba.onclick = () => {
+            a.status = "aprobat";
+            localStorage.setItem("aplicatii", JSON.stringify(aplicatii));
+            afiseazaAplicatii(departament, true);
+          };
+          div.appendChild(btnAproba);
+
+          const btnRespinge = document.createElement("button");
+          btnRespinge.textContent = "Respinge aplicația";
+          btnRespinge.className = "btn-respinge";
+          btnRespinge.onclick = () => {
+            a.status = "respins";
+            localStorage.setItem("aplicatii", JSON.stringify(aplicatii));
+            afiseazaAplicatii(departament, true);
+          };
+          div.appendChild(btnRespinge);
+        }
+
+        listaAplicatii.appendChild(div);
+      });
+    }
+
+    // Functie de adaugare aplicatii
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nouaAplicatie = {
+        nume_ooc: document.getElementById("nume_ooc").value,
+        varsta_ooc: document.getElementById("varsta_ooc").value,
+        descriere_ooc: document.getElementById("descriere_ooc").value,
+        nume_ic: document.getElementById("nume_ic").value,
+        varsta_ic: document.getElementById("varsta_ic").value,
+        descriere_ic: document.getElementById("descriere_ic").value,
+        motivatie_ic: document.getElementById("motivatie_ic").value,
+        capabilitate_ic: document.getElementById("capabilitate_ic").value,
+        departament: document.getElementById("departament").value,
+        status: "in_asteptare"
+      };
+
+      aplicatii.push(nouaAplicatie);
+      localStorage.setItem("aplicatii", JSON.stringify(aplicatii));
+      alert("Aplicația a fost trimisă și așteaptă verificare.");
+      form.reset();
+    });
+
+    // Admin: F1 pentru Poliție, F2 pentru SMURD, F4 pentru ștergere aplicații
+    document.addEventListener("keydown", (e) => {
+      // Tasta F1 pentru Poliție
+      if (e.code === "F1") {
+        const parolaPolitie = prompt("Introduceți parola pentru aplicații Poliție:");
+        if (parolaPolitie === "EcstaSyPolitie2025!") {
+          afiseazaAplicatii("Poliție", true);
+        } else {
+          alert("Parolă greșită pentru Poliție!");
+        }
+      }
+
+      // Tasta F2 pentru SMURD
+      if (e.code === "F2") {
+        const parolaSmurd = prompt("Introduceți parola pentru aplicații SMURD:");
+        if (parolaSmurd === "EcstaSySmurd2025!") {
+          afiseazaAplicatii("SMURD", true);
+        } else {
+          alert("Parolă greșită pentru SMURD!");
+        }
+      }
+
+      // Tasta F4 pentru ștergere aplicații
+      if (e.code === "F4") {
+        const parolaStergere = prompt("Introduceți parola pentru a șterge aplicațiile:");
+        if (parolaStergere === "EcstaSy2025!DeleteApp") {
+          const confirmDelete = confirm("Sigur doriți să ștergeți toate aplicațiile?");
+          if (confirmDelete) {
+            localStorage.removeItem("aplicatii");
+            aplicatii = [];
+            afiseazaAplicatii("Poliție");
+            alert("Toate aplicațiile au fost șterse!");
+          }
+        } else {
+          alert("Parolă greșită!");
+        }
+      }
+    });
+
+    // Inițializare aplicații pentru Poliție
+    afiseazaAplicatii("Poliție");
+  </script>
 </body>
 </html>
