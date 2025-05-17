@@ -2,163 +2,76 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Regulament</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon cu logo-ul corect -->
-  <link rel="icon" href="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" type="image/png" />
-
-  <style>
-    /* Stil pentru a ascunde și a arăta secțiunile de reguli */
-    .content {
-      display: none;
-      margin-top: 10px;
-      font-size: 1.1em;
-    }
-
-    .toggle-btn {
-      cursor: pointer;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      width: 100%;
-      text-align: left;
-    }
-
-    .toggle-btn:hover {
-      background-color: #45a049;
-    }
-
-    h2 {
-      font-size: 1.5em;
-    }
-
-    /* Stil pentru logo în bara laterală */
-    .sidebar img {
-      width: 80%;
-      max-width: 200px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-    }
-
-    /* Stil pentru mesajul informativ */
-    .info-message {
-      background-color: #1a237e; /* Albastru închis */
-      color: #007bff; /* Albastru deschis pentru text */
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      font-size: 1.1em;
-      border: 1px solid #0d1540;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .info-message p {
-      margin: 0;
-    }
-
-    .info-message::before {
-      content: "ℹ️ ";
-      margin-right: 8px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regulament - ModelV</title>
+  <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1153942954650648657/1373221980601319485/politia_gta-removebg-preview.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="sidebar">
-    <h2>ECSTASY</h2>
-    <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
-    <ul>
-      <li><a href="index.html">Shop</a></li>
-      <li><a href="regulament.html">Regulament</a></li>
-      <li><a href="aplicatii.html">Aplicații</a></li>
-    </ul>
+<body class="bg-gray-900 text-white font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 p-6 flex flex-col items-center">
+      <img src="https://media.discordapp.net/attachments/1153942954650648657/1373221980601319485/politia_gta-removebg-preview.png" alt="ModelV Logo" class="w-40 mb-6" />
+      <h2 class="text-2xl font-bold text-center mb-6">ModelV</h2>
+      <nav class="space-y-4 w-full">
+        <a href="index.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Shop</a>
+        <a href="regulament.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Regulament</a>
+        <a href="aplicatii.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Aplicații</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <header class="mb-6">
+        <h1 class="text-4xl font-bold mb-2">📜 Regulament</h1>
+        <div class="bg-blue-900 text-blue-300 p-4 rounded-md shadow-md">
+          ℹ️ Apasă pe fiecare regulă pentru a vedea explicația detaliată.
+        </div>
+      </header>
+
+      <section id="regulament" class="space-y-4">
+        <!-- Reguli dinamice -->
+        <script>
+          const reguli = [
+            { id: 'rp', titlu: 'RolePlay (RP)', descriere: 'RP este simularea vieții reale în joc, acțiuni realiste etc.' },
+            { id: 'frp', titlu: 'Fail RolePlay (FRP)', descriere: 'FRP apare când nu respecți regulile RP-ului.' },
+            { id: 'pg', titlu: 'Powergaming (PG)', descriere: 'Folosirea de acțiuni imposibile în realitate pentru avantaje.' },
+            { id: 'mg', titlu: 'Metagaming (MG)', descriere: 'Folosirea de informații din afara jocului în joc.' },
+            { id: 'dm', titlu: 'Deathmatching (DM)', descriere: 'Ucizi fără motiv RP valid.' },
+            { id: 'nlr', titlu: 'New Life Rule (NLR)', descriere: 'După moarte, personajul nu își amintește viața anterioară.' },
+            { id: 'rk', titlu: 'Revenge Killing (RK)', descriere: 'Ucizi ca răzbunare fără context RP.' },
+            { id: 'sk', titlu: 'Spawn Killing (SK)', descriere: 'Ucizi imediat ce cineva apare în joc.' },
+            { id: 'respect', titlu: 'Respect pentru ceilalți', descriere: 'Fără limbaj ofensator sau comportament toxic.' },
+            { id: 'hacking', titlu: 'Hacking / Programe Externe', descriere: 'Interzis total. Sancțiuni severe.' },
+            { id: 'spamming', titlu: 'Spamming', descriere: 'Mesaje repetate sau blocarea chatului sunt interzise.' },
+            { id: 'bugs', titlu: 'Abuz de bug-uri', descriere: 'Folosirea bug-urilor pentru avantaje e interzisă.' },
+          ];
+        </script>
+
+        <div id="reguli-list"></div>
+
+        <script>
+          const container = document.getElementById('reguli-list');
+          reguli.forEach(regula => {
+            const btn = document.createElement('button');
+            btn.className = "w-full text-left bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded font-medium";
+            btn.innerText = `🔹 ${regula.titlu}`;
+            btn.onclick = () => {
+              const el = document.getElementById(`content-${regula.id}`);
+              el.classList.toggle('hidden');
+            };
+
+            const content = document.createElement('div');
+            content.id = `content-${regula.id}`;
+            content.className = "hidden bg-gray-800 px-4 py-3 rounded shadow-inner text-gray-300";
+            content.innerText = regula.descriere;
+
+            container.appendChild(btn);
+            container.appendChild(content);
+          });
+        </script>
+      </section>
+    </main>
   </div>
-
-  <div class="main">
-    <header>
-      <h1>Regulament</h1>
-    </header>
-
-    <!-- Mesaj informativ -->
-    <div class="info-message">
-      <p>Apasă pe fiecare regulă pentru a vedea explicația detaliată.</p>
-    </div>
-
-    <!-- Secțiune Regulament -->
-    <section id="regulament">
-      <h2>Regulament</h2>
-
-      <!-- Reguli -->
-      <button class="toggle-btn" onclick="toggleContent('rp')">RolePlay (RP)</button>
-      <div id="rp" class="content">
-        <p>RolePlay (RP) reprezintă simularea vieții reale în joc, totalitatea acțiunilor pe care un om le-ar face în viața reală.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('frp')">Fail RolePlay (FRP)</button>
-      <div id="frp" class="content">
-        <p>Fail RolePlay (FRP) reprezintă momentul în care nu reușești să te adaptezi roleplay-ului, nemaifiind respectate regulile specifice unui RP.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('pg')">Powergaming (PG)</button>
-      <div id="pg" class="content">
-        <p>Powergaming (PG) reprezintă folosirea unor acțiuni sau abilități imposibile în viața reală pentru a obține un avantaj ireal în joc.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('mg')">Metagaming (MG)</button>
-      <div id="mg" class="content">
-        <p>Metagaming (MG) reprezintă utilizarea informațiilor obținute în afara jocului (de exemplu, prin forumuri sau discuții externe) pentru a influența comportamentul în joc.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('dm')">Deathmatching (DM)</button>
-      <div id="dm" class="content">
-        <p>Deathmatching (DM) este atunci când un jucător ucide alt jucător fără o motivație validă în cadrul jocului sau fără să respecte contextul roleplay.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('nlr')">New Life Rule (NLR)</button>
-      <div id="nlr" class="content">
-        <p>New Life Rule (NLR) presupune că, în momentul în care moare un personaj, acesta nu își poate aminti nimic din viața sa anterioară sau evenimentele dinainte de moarte.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('rk')">Revenge Killing (RK)</button>
-      <div id="rk" class="content">
-        <p>Revenge Killing (RK) se referă la uciderea unui jucător în scopul de a răzbuna moartea unui personaj, fără respectarea regulilor roleplay.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('sk')">Spawn Killing (SK)</button>
-      <div id="sk" class="content">
-        <p>Spawn Killing (SK) se referă la uciderea unui jucător imediat ce acesta a apărut în joc, fără un motiv valid în cadrul jocului.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('respect')">Respect pentru ceilalți jucători</button>
-      <div id="respect" class="content">
-        <p>Fiecare jucător trebuie să arate respect pentru ceilalți participanți la joc, evitând limbajul ofensator și comportamentul toxic.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('hacking')">Hacking și utilizarea programelor externe</button>
-      <div id="hacking" class="content">
-        <p>Este strict interzisă utilizarea oricăror hack-uri sau programe externe care influențează gameplay-ul jocului sau dau un avantaj neloial.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('spamming')">Spamming</button>
-      <div id="spamming" class="content">
-        <p>Spamming-ul este interzis. Orice formă de a trimite mesaje repetate sau de a bloca chat-ul în mod intenționat este interzisă.</p>
-      </div>
-
-      <button class="toggle-btn" onclick="toggleContent('bugs')">Abuzul de bug-uri</button>
-      <div id="bugs" class="content">
-        <p>Abuzul de bug-uri în scopul de a obține un avantaj este strict interzis și poate duce la sancțiuni grave.</p>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    function toggleContent(id) {
-      var content = document.getElementById(id);
-      content.style.display = (content.style.display === "block") ? "none" : "block";
-    }
-  </script>
 </body>
 </html>
