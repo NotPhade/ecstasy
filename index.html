@@ -1,41 +1,137 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ecstasy</title>
+  <title>Ecstasy Shop</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Stiluri pentru logo și sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+    }
+
+    .sidebar h2 {
+      font-size: 2.5em;
+      text-align: center;
+      margin: 0;
+      padding-bottom: 20px;
+    }
+
+    /* Ajustarea logo-ului */
+    .sidebar img {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      max-width: 200px;
+      height: auto;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Stiluri pentru partea principală */
+    .main {
+      margin-left: 260px;
+      padding: 20px;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    /* Stiluri pentru secțiunea Shop */
+    #shop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vip-link, .coins-link, .sponsor-link, .sanctions-link, .mafia-link {
+      margin: 10px 0;
+    }
+
+    .vip-link h2, .coins-link h2, .sponsor-link h2, .sanctions-link h2, .mafia-link h2 {
+      font-size: 1.5em;
+    }
+
+    .vip-link h2 a, .coins-link h2 a, .sponsor-link h2 a, .sanctions-link h2 a, .mafia-link h2 a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+    .vip-link h2 a:hover, .coins-link h2 a:hover, .sponsor-link h2 a:hover, .sanctions-link h2 a:hover, .mafia-link h2 a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div class="sidebar">
-    <h2>Ecstasy</h2>
+    <!-- Logo-ul pentru ECSTASY -->
+    <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
+
+    <h2>ECSTASY</h2>
     <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#regulament">Regulament</a></li>
-      <li><a href="#politie">Aplicație Poliție</a></li>
-      <li><a href="#smurd">Aplicație SMURD</a></li>
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="regulament.html">Regulament</a></li>
+      <li><a href="aplicatii.html">Aplicații</a></li>
     </ul>
   </div>
 
   <div class="main">
     <header>
-      <h1>Dashboard</h1>
+      <h1>ECSTASY SHOP</h1>
     </header>
 
-    <section id="politie">
-      <h2>Aplicație Poliție</h2>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNQ8dHTPYdZV7VnSKNV4nReQBGQ-qREgO7F3ef6qIcfdmHfg/viewform" target="_blank" class="btn">Aplică aici</a>
-    </section>
+    <!-- Secțiune Shop -->
+    <section id="shop">
+      <!-- Link către pagina cu prețuri VIP -->
+      <div class="vip-link">
+        <h2><a href="vip-prices.html">Vezi Prețuri VIP</a></h2>
+      </div>
 
-    <section id="smurd">
-      <h2>Aplicație SMURD</h2>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNQ8dHTPYdZV7VnSKNV4nReQBGQ-qREgO7F3ef6qIcfdmHfg/viewform" target="_blank" class="btn">Aplică aici</a>
-    </section>
+      <!-- Link către pagina cu Pachete Coin-uri -->
+      <div class="coins-link">
+        <h2><a href="coins-packages.html">Vezi Pachete Coin-uri</a></h2>
+      </div>
 
-    <section id="regulament">
-      <h2>Regulament</h2>
-      <p>Aici poți adăuga regulamentul complet al comunității tale.</p>
+      <!-- Link către pagina cu Pachetele Sponsor -->
+      <div class="sponsor-link">
+        <h2><a href="sponsor-packages.html">Vezi Pachete Sponsor</a></h2>
+      </div>
+
+      <!-- Link către pagina cu Sanctiuni -->
+      <div class="sanctions-link">
+        <h2><a href="sanctions.html">Vezi Sanctiuni</a></h2>
+      </div>
+
+      <!-- Link către pagina cu Mafia -->
+      <div class="mafia-link">
+        <h2><a href="mafia.html">Vezi Înființare Mafia/Gang</a></h2>
+      </div>
     </section>
   </div>
 </body>
