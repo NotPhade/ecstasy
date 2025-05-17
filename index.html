@@ -2,76 +2,245 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regulament - ModelV</title>
-  <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1153942954650648657/1373221980601319485/politia_gta-removebg-preview.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ecstasy Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Favicon cu logo-ul corect -->
+  <link rel="icon" href="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" type="image/png" />
+
+  <style>
+    /* Stiluri pentru logo și sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+    }
+
+    .sidebar h2 {
+      font-size: 2.5em;
+      text-align: center;
+      margin: 0;
+      padding-bottom: 20px;
+    }
+
+    /* Ajustarea logo-ului */
+    .sidebar img {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      max-width: 200px;
+      height: auto;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Stiluri pentru partea principală */
+    .main {
+      margin-left: 260px;
+      padding: 20px;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    /* Stiluri pentru secțiunea Shop */
+    #shop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vip-link, .coins-link, .sponsor-link, .sanctions-link, .mafia-link, .updates-link {
+      margin: 10px 0;
+    }
+
+    .vip-link h2, .coins-link h2, .sponsor-link h2, .sanctions-link h2, .mafia-link h2, .updates-link h2 {
+      font-size: 1.5em;
+    }
+
+    .vip-link h2 a, .coins-link h2 a, .sponsor-link h2 a, .sanctions-link h2 a, .mafia-link h2 a, .updates-link h2 a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+    .vip-link h2 a:hover, .coins-link h2 a:hover, .sponsor-link h2 a:hover, .sanctions-link h2 a:hover, .mafia-link h2 a:hover, .updates-link h2 a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-  <div class="flex min-h-screen">
-    <!-- Sidebar -->
-    <aside class="w-64 bg-gray-800 p-6 flex flex-col items-center">
-      <img src="https://media.discordapp.net/attachments/1153942954650648657/1373221980601319485/politia_gta-removebg-preview.png" alt="ModelV Logo" class="w-40 mb-6" />
-      <h2 class="text-2xl font-bold text-center mb-6">ModelV</h2>
-      <nav class="space-y-4 w-full">
-        <a href="index.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Shop</a>
-        <a href="regulament.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Regulament</a>
-        <a href="aplicatii.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Aplicații</a>
-      </nav>
-    </aside>
+<body>
+  <div class="sidebar">
+    <!-- Logo-ul pentru ECSTASY -->
+    <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
 
-    <!-- Main Content -->
-    <main class="flex-1 p-8">
-      <header class="mb-6">
-        <h1 class="text-4xl font-bold mb-2">📜 Regulament</h1>
-        <div class="bg-blue-900 text-blue-300 p-4 rounded-md shadow-md">
-          ℹ️ Apasă pe fiecare regulă pentru a vedea explicația detaliată.
-        </div>
-      </header>
-
-      <section id="regulament" class="space-y-4">
-        <!-- Reguli dinamice -->
-        <script>
-          const reguli = [
-            { id: 'rp', titlu: 'RolePlay (RP)', descriere: 'RP este simularea vieții reale în joc, acțiuni realiste etc.' },
-            { id: 'frp', titlu: 'Fail RolePlay (FRP)', descriere: 'FRP apare când nu respecți regulile RP-ului.' },
-            { id: 'pg', titlu: 'Powergaming (PG)', descriere: 'Folosirea de acțiuni imposibile în realitate pentru avantaje.' },
-            { id: 'mg', titlu: 'Metagaming (MG)', descriere: 'Folosirea de informații din afara jocului în joc.' },
-            { id: 'dm', titlu: 'Deathmatching (DM)', descriere: 'Ucizi fără motiv RP valid.' },
-            { id: 'nlr', titlu: 'New Life Rule (NLR)', descriere: 'După moarte, personajul nu își amintește viața anterioară.' },
-            { id: 'rk', titlu: 'Revenge Killing (RK)', descriere: 'Ucizi ca răzbunare fără context RP.' },
-            { id: 'sk', titlu: 'Spawn Killing (SK)', descriere: 'Ucizi imediat ce cineva apare în joc.' },
-            { id: 'respect', titlu: 'Respect pentru ceilalți', descriere: 'Fără limbaj ofensator sau comportament toxic.' },
-            { id: 'hacking', titlu: 'Hacking / Programe Externe', descriere: 'Interzis total. Sancțiuni severe.' },
-            { id: 'spamming', titlu: 'Spamming', descriere: 'Mesaje repetate sau blocarea chatului sunt interzise.' },
-            { id: 'bugs', titlu: 'Abuz de bug-uri', descriere: 'Folosirea bug-urilor pentru avantaje e interzisă.' },
-          ];
-        </script>
-
-        <div id="reguli-list"></div>
-
-        <script>
-          const container = document.getElementById('reguli-list');
-          reguli.forEach(regula => {
-            const btn = document.createElement('button');
-            btn.className = "w-full text-left bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded font-medium";
-            btn.innerText = `🔹 ${regula.titlu}`;
-            btn.onclick = () => {
-              const el = document.getElementById(`content-${regula.id}`);
-              el.classList.toggle('hidden');
-            };
-
-            const content = document.createElement('div');
-            content.id = `content-${regula.id}`;
-            content.className = "hidden bg-gray-800 px-4 py-3 rounded shadow-inner text-gray-300";
-            content.innerText = regula.descriere;
-
-            container.appendChild(btn);
-            container.appendChild(content);
-          });
-        </script>
-      </section>
-    </main>
+    <h2>ECSTASY</h2>
+    <ul>
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="regulament.html">Regulament</a></li>
+      <li><a href="aplicatii.html">Aplicații</a></li>
+      <li><a href="update.html">Update-uri Recente</a></li>
+    </ul>
   </div>
+
+  <div class="main">
+    <header>
+      <h1>ECSTASY SHOP</h1>
+    </header>
+
+    <!-- Secțiune Shop -->
+    <section id="shop">
+      <div class="vip-link">
+        <h2><a href="vip-prices.html">Vezi Prețuri VIP</a></h2>
+      </div>
+
+      <div class="coins-link">
+        <h2><a href="coins-packages.html">Vezi Pachete Coin-uri</a></h2>
+      </div>
+
+      <div class="sponsor-link">
+        <h2><a href="sponsor-packages.html">Vezi Pachete Sponsor</a></h2>
+      </div>
+
+      <div class="sanctions-link">
+        <h2><a href="sanctions.html">Vezi Sanctiuni</a></h2>
+      </div>
+
+      <div class="mafia-link">
+        <h2><a href="mafia.html">Vezi Înființare Mafia/Gang</a></h2>
+      </div>
+
+      <div class="updates-link">
+        <h2><a href="update.html">Vezi Update-uri Recente</a></h2>
+      </div>
+    </section>
+  </div>
+
+  <!-- Codul pentru live chat Tawk.to -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/your_tawk_id/default';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Status Server - Ecstasy Romania</title>
+  <style>
+    body {
+      background-color: #2f2f2f;
+      color: #f4f4f4;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .status-box {
+      background-color: #3a3a3a;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+    .status-box h2 {
+      color: #f2b601;
+    }
+    .players-list {
+      list-style: none;
+      padding: 0;
+    }
+    .players-list li {
+      background-color: #444;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .players-list li span {
+      color: #f2b601;
+    }
+  </style>
+</head>
+<body>
+  <div class="status-box">
+    <h2>Ecstasy Romania Medium RolePlay</h2>
+    <p id="status">Se încarcă statusul serverului...</p>
+    <ul id="players" class="players-list">
+      <!-- Lista jucătorilor online va apărea aici -->
+    </ul>
+  </div>
+
+  <script>
+    async function fetchServerStatus() {
+      try {
+        const response = await fetch('https://servers-frontend.fivem.net/api/servers/single/9dkrkm');
+        if (!response.ok) {
+          throw new Error('Răspuns invalid de la server');
+        }
+        const data = await response.json();
+        const players = data.Data.clients;
+        const maxPlayers = data.Data.sv_maxclients;
+        const playerList = data.Data.players || []; // Jucători actuali pe server
+
+        // Actualizează statusul numărului de jucători
+        document.getElementById('status').textContent = `Jucători online: ${players} / ${maxPlayers}`;
+
+        // Afișează lista jucătorilor online
+        const playersListElement = document.getElementById('players');
+        playersListElement.innerHTML = ''; // Șterge orice conținut existent
+
+        if (playerList.length === 0) {
+          playersListElement.innerHTML = '<li>Nu sunt jucători online.</li>';
+        } else {
+          playerList.forEach(player => {
+            const listItem = document.createElement('li');
+            listItem.textContent = player.name; // Afișează numele jucătorului
+            playersListElement.appendChild(listItem);
+          });
+        }
+      } catch (error) {
+        document.getElementById('status').textContent = 'Nu se poate obține statusul serverului.';
+        console.error('Eroare la obținerea statusului serverului:', error);
+      }
+    }
+
+    fetchServerStatus();
+    // Actualizează statusul și lista jucătorilor la fiecare 60 de secunde
+    setInterval(fetchServerStatus, 60000);
+  </script>
+</body>
+</html>
+
