@@ -43,17 +43,37 @@
       display: block;
       margin: 20px auto;
     }
+
+    /* Stil pentru mesajul informativ */
+    .info-message {
+      background-color: #1a237e; /* Albastru închis */
+      color: #007bff; /* Albastru deschis pentru text */
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      border: 1px solid #0d1540;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .info-message p {
+      margin: 0;
+    }
+
+    .info-message::before {
+      content: "ℹ️ ";
+      margin-right: 8px;
+    }
   </style>
 </head>
 <body>
   <div class="sidebar">
     <h2>ECSTASY</h2>
-    <!-- Logo în bara laterală -->
     <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
     <ul>
-      <li><a href="index.html">Shop</a></li> <!-- Link pentru Shop -->
-      <li><a href="regulament.html">Regulament</a></li> <!-- Link pentru Regulament -->
-      <li><a href="aplicatii.html">Aplicații</a></li> <!-- Link pentru Aplicații -->
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="regulament.html">Regulament</a></li>
+      <li><a href="aplicatii.html">Aplicații</a></li>
     </ul>
   </div>
 
@@ -62,77 +82,71 @@
       <h1>Regulament</h1>
     </header>
 
+    <!-- Mesaj informativ -->
+    <div class="info-message">
+      <p>Apasă pe fiecare regulă pentru a vedea explicația detaliată.</p>
+    </div>
+
     <!-- Secțiune Regulament -->
     <section id="regulament">
       <h2>Regulament</h2>
-      
-      <!-- Roleplay (RP) -->
+
+      <!-- Reguli -->
       <button class="toggle-btn" onclick="toggleContent('rp')">RolePlay (RP)</button>
       <div id="rp" class="content">
         <p>RolePlay (RP) reprezintă simularea vieții reale în joc, totalitatea acțiunilor pe care un om le-ar face în viața reală.</p>
       </div>
 
-      <!-- Fail RolePlay (FRP) -->
       <button class="toggle-btn" onclick="toggleContent('frp')">Fail RolePlay (FRP)</button>
       <div id="frp" class="content">
         <p>Fail RolePlay (FRP) reprezintă momentul în care nu reușești să te adaptezi roleplay-ului, nemaifiind respectate regulile specifice unui RP.</p>
       </div>
 
-      <!-- Powergaming (PG) -->
       <button class="toggle-btn" onclick="toggleContent('pg')">Powergaming (PG)</button>
       <div id="pg" class="content">
         <p>Powergaming (PG) reprezintă folosirea unor acțiuni sau abilități imposibile în viața reală pentru a obține un avantaj ireal în joc.</p>
       </div>
 
-      <!-- Metagaming (MG) -->
       <button class="toggle-btn" onclick="toggleContent('mg')">Metagaming (MG)</button>
       <div id="mg" class="content">
-        <p>Metagaming (MG) reprezintă utilizarea informațiilor obținute în afacerea jocului (de exemplu, prin forumuri sau discuții externe) pentru a influența comportamentul în joc.</p>
+        <p>Metagaming (MG) reprezintă utilizarea informațiilor obținute în afara jocului (de exemplu, prin forumuri sau discuții externe) pentru a influența comportamentul în joc.</p>
       </div>
 
-      <!-- Deathmatching (DM) -->
       <button class="toggle-btn" onclick="toggleContent('dm')">Deathmatching (DM)</button>
       <div id="dm" class="content">
         <p>Deathmatching (DM) este atunci când un jucător ucide alt jucător fără o motivație validă în cadrul jocului sau fără să respecte contextul roleplay.</p>
       </div>
 
-      <!-- New Life Rule (NLR) -->
       <button class="toggle-btn" onclick="toggleContent('nlr')">New Life Rule (NLR)</button>
       <div id="nlr" class="content">
         <p>New Life Rule (NLR) presupune că, în momentul în care moare un personaj, acesta nu își poate aminti nimic din viața sa anterioară sau evenimentele dinainte de moarte.</p>
       </div>
 
-      <!-- Revenge Killing (RK) -->
       <button class="toggle-btn" onclick="toggleContent('rk')">Revenge Killing (RK)</button>
       <div id="rk" class="content">
         <p>Revenge Killing (RK) se referă la uciderea unui jucător în scopul de a răzbuna moartea unui personaj, fără respectarea regulilor roleplay.</p>
       </div>
 
-      <!-- Spawn Killing (SK) -->
       <button class="toggle-btn" onclick="toggleContent('sk')">Spawn Killing (SK)</button>
       <div id="sk" class="content">
         <p>Spawn Killing (SK) se referă la uciderea unui jucător imediat ce acesta a apărut în joc, fără un motiv valid în cadrul jocului.</p>
       </div>
 
-      <!-- Respect pentru ceilalți jucători -->
       <button class="toggle-btn" onclick="toggleContent('respect')">Respect pentru ceilalți jucători</button>
       <div id="respect" class="content">
         <p>Fiecare jucător trebuie să arate respect pentru ceilalți participanți la joc, evitând limbajul ofensator și comportamentul toxic.</p>
       </div>
 
-      <!-- Hacking și utilizarea programelor externe -->
       <button class="toggle-btn" onclick="toggleContent('hacking')">Hacking și utilizarea programelor externe</button>
       <div id="hacking" class="content">
         <p>Este strict interzisă utilizarea oricăror hack-uri sau programe externe care influențează gameplay-ul jocului sau dau un avantaj neloial.</p>
       </div>
 
-      <!-- Spamming -->
       <button class="toggle-btn" onclick="toggleContent('spamming')">Spamming</button>
       <div id="spamming" class="content">
         <p>Spamming-ul este interzis. Orice formă de a trimite mesaje repetate sau de a bloca chat-ul în mod intenționat este interzisă.</p>
       </div>
 
-      <!-- Abuzul de bug-uri -->
       <button class="toggle-btn" onclick="toggleContent('bugs')">Abuzul de bug-uri</button>
       <div id="bugs" class="content">
         <p>Abuzul de bug-uri în scopul de a obține un avantaj este strict interzis și poate duce la sancțiuni grave.</p>
@@ -141,14 +155,9 @@
   </div>
 
   <script>
-    // Funcția pentru a toggle (a arăta sau ascunde) secțiunile
     function toggleContent(id) {
       var content = document.getElementById(id);
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+      content.style.display = (content.style.display === "block") ? "none" : "block";
     }
   </script>
 </body>
