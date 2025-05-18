@@ -2,101 +2,194 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ecstasy Shop</title>
-  <link rel="stylesheet" href="style.css" />
-  
-  <!-- Favicon cu logo-ul corect -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ecstasy Shop - Mov 3D Layout</title>
   <link rel="icon" href="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" type="image/png" />
 
   <style>
-    /* Stiluri pentru logo și sidebar */
-    .sidebar {
-      width: 250px;
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      position: fixed;
-      height: 100%;
-    }
-
-    .sidebar h2 {
-      font-size: 2.5em;
-      text-align: center;
+    /* Reset & font */
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding-bottom: 20px;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #4b006e, #7f00ff);
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
     }
 
-    /* Ajustarea logo-ului */
+    /* Sidebar cu efect 3D */
+    .sidebar {
+      width: 280px;
+      background: linear-gradient(145deg, #5a008a, #33004d);
+      box-shadow:
+        -8px 0 15px rgba(255, 255, 255, 0.1),
+        inset 5px 0 15px rgba(255, 255, 255, 0.2);
+      color: #d3baff;
+      padding: 30px 25px;
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      border-radius: 0 30px 30px 0;
+      transform-style: preserve-3d;
+      transform: perspective(1200px) rotateY(-5deg);
+      transition: all 0.3s ease;
+    }
+    .sidebar:hover {
+      transform: perspective(1200px) rotateY(0deg);
+      box-shadow:
+        -12px 0 25px rgba(255, 255, 255, 0.3),
+        inset 5px 0 15px rgba(255, 255, 255, 0.4);
+    }
+
     .sidebar img {
-      width: 80%;
-      margin: 0 auto;
+      width: 160px;
       display: block;
-      max-width: 200px;
-      height: auto;
+      margin: 0 auto 20px auto;
+      filter: drop-shadow(0 0 5px #d493ff);
+      border-radius: 20px;
+      transform-style: preserve-3d;
+      transform: translateZ(20px);
+    }
+    .sidebar h2 {
+      font-size: 2.7rem;
+      text-align: center;
+      margin-bottom: 35px;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 5px #b189ff;
+      user-select: none;
     }
 
     .sidebar ul {
-      list-style-type: none;
-      padding: 0;
+      list-style: none;
     }
-
     .sidebar ul li {
-      margin: 15px 0;
+      margin: 22px 0;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+      user-select: none;
     }
-
     .sidebar ul li a {
-      color: white;
+      color: #d3baff;
       text-decoration: none;
-      font-size: 1.2em;
+      text-shadow: 0 0 6px #a475ff;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 10px;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-
     .sidebar ul li a:hover {
-      text-decoration: underline;
+      color: #fff;
+      background: #9a4dffcc;
+      text-shadow: 0 0 8px #ffffffcc;
+      transform: translateX(10px);
     }
 
-    /* Stiluri pentru partea principală */
+    /* Main content cu efect 3D */
     .main {
-      margin-left: 260px;
-      padding: 20px;
+      margin-left: 300px;
+      padding: 40px 50px;
+      perspective: 1500px;
+      flex: 1;
+      overflow-y: auto;
     }
-
     header h1 {
+      font-size: 3.5rem;
       text-align: center;
-      font-size: 3em;
-      margin-bottom: 20px;
+      color: #e0c3ff;
+      text-shadow: 0 0 10px #a162ff, 0 0 20px #7a00ff;
+      margin-bottom: 50px;
+      user-select: none;
+      transform-style: preserve-3d;
+      animation: floatText 5s ease-in-out infinite;
     }
 
-    /* Stiluri pentru secțiunea Shop */
+    @keyframes floatText {
+      0%, 100% {
+        transform: translateZ(15px) translateY(0);
+        text-shadow: 0 0 10px #a162ff, 0 0 20px #7a00ff;
+      }
+      50% {
+        transform: translateZ(30px) translateY(-10px);
+        text-shadow: 0 0 25px #d296ff, 0 0 40px #d296ff;
+      }
+    }
+
+    /* Section shop - stil vertical */
     #shop {
       display: flex;
       flex-direction: column;
+      gap: 25px;
+      max-width: 600px;
+      margin: 0 auto;
+      user-select: none;
+    }
+
+    #shop > div {
+      background: linear-gradient(145deg, #5f00b3, #34006f);
+      box-shadow:
+        5px 5px 15px #37008a,
+        inset -3px -3px 10px #7a00ff;
+      padding: 20px 25px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #e6d9ff;
+      font-weight: 600;
+      font-size: 1.6rem;
+      display: flex;
+      justify-content: center;
       align-items: center;
+      text-align: center;
+      transform-style: preserve-3d;
     }
 
-    .vip-link, .coins-link, .sponsor-link, .sanctions-link, .mafia-link, .updates-link {
-      margin: 10px 0;
+    #shop > div:hover {
+      transform: translateZ(20px) scale(1.05);
+      box-shadow:
+        10px 10px 30px #9a4dff,
+        inset 2px 2px 12px #b28aff;
+      color: #fff;
     }
 
-    .vip-link h2, .coins-link h2, .sponsor-link h2, .sanctions-link h2, .mafia-link h2, .updates-link h2 {
-      font-size: 1.5em;
-    }
-
-    .vip-link h2 a, .coins-link h2 a, .sponsor-link h2 a, .sanctions-link h2 a, .mafia-link h2 a, .updates-link h2 a {
+    #shop h2 a {
+      color: inherit;
       text-decoration: none;
-      color: #4CAF50;
+      user-select: none;
+    }
+    #shop h2 a:hover {
+      text-decoration: underline;
     }
 
-    .vip-link h2 a:hover, .coins-link h2 a:hover, .sponsor-link h2 a:hover, .sanctions-link h2 a:hover, .mafia-link h2 a:hover, .updates-link h2 a:hover {
-      text-decoration: underline;
+    /* Responsive */
+    @media (max-width: 700px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        transform: none !important;
+        box-shadow: none !important;
+        padding: 20px 15px;
+      }
+      .main {
+        margin-left: 0;
+        padding: 20px 15px;
+      }
+      #shop {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="sidebar">
-    <!-- Logo-ul pentru ECSTASY -->
     <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
-
     <h2>ECSTASY</h2>
     <ul>
       <li><a href="index.html">Shop</a></li>
@@ -111,7 +204,6 @@
       <h1>ECSTASY SHOP</h1>
     </header>
 
-    <!-- Secțiune Shop -->
     <section id="shop">
       <div class="vip-link">
         <h2><a href="vip-prices.html">Vezi Prețuri VIP</a></h2>
@@ -151,96 +243,5 @@
       s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
-
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-  <meta charset="UTF-8">
-  <title>Status Server - Ecstasy Romania</title>
-  <style>
-    body {
-      background-color: #2f2f2f;
-      color: #f4f4f4;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    .status-box {
-      background-color: #3a3a3a;
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
-    }
-    .status-box h2 {
-      color: #f2b601;
-    }
-    .players-list {
-      list-style: none;
-      padding: 0;
-    }
-    .players-list li {
-      background-color: #444;
-      margin: 5px 0;
-      padding: 10px;
-      border-radius: 8px;
-    }
-    .players-list li span {
-      color: #f2b601;
-    }
-  </style>
-</head>
-<body>
-  <div class="status-box">
-    <h2>Ecstasy Romania Medium RolePlay</h2>
-    <p id="status">Se încarcă statusul serverului...</p>
-    <ul id="players" class="players-list">
-      <!-- Lista jucătorilor online va apărea aici -->
-    </ul>
-  </div>
-
-  <script>
-    async function fetchServerStatus() {
-      try {
-        const response = await fetch('https://servers-frontend.fivem.net/api/servers/single/9dkrkm');
-        if (!response.ok) {
-          throw new Error('Răspuns invalid de la server');
-        }
-        const data = await response.json();
-        const players = data.Data.clients;
-        const maxPlayers = data.Data.sv_maxclients;
-        const playerList = data.Data.players || []; // Jucători actuali pe server
-
-        // Actualizează statusul numărului de jucători
-        document.getElementById('status').textContent = `Jucători online: ${players} / ${maxPlayers}`;
-
-        // Afișează lista jucătorilor online
-        const playersListElement = document.getElementById('players');
-        playersListElement.innerHTML = ''; // Șterge orice conținut existent
-
-        if (playerList.length === 0) {
-          playersListElement.innerHTML = '<li>Nu sunt jucători online.</li>';
-        } else {
-          playerList.forEach(player => {
-            const listItem = document.createElement('li');
-            listItem.textContent = player.name; // Afișează numele jucătorului
-            playersListElement.appendChild(listItem);
-          });
-        }
-      } catch (error) {
-        document.getElementById('status').textContent = 'Nu se poate obține statusul serverului.';
-        console.error('Eroare la obținerea statusului serverului:', error);
-      }
-    }
-
-    fetchServerStatus();
-    // Actualizează statusul și lista jucătorilor la fiecare 60 de secunde
-    setInterval(fetchServerStatus, 60000);
-  </script>
-</body>
-</html>
-
