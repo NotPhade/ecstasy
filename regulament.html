@@ -103,20 +103,74 @@
   { id: 'arma', titlu: 'Armă în zonă publică', descriere: 'Scoaterea sau folosirea armelor în public fără RP.' },
 ],
       discord: [
-        { id: 'invite', titlu: 'Invitații pe Discord', descriere: 'Folosirea linkurilor neautorizate de invitație sau distribuirea acestora fără permisiune.' },
-        { id: 'toxicitate', titlu: 'Toxicitate', descriere: 'Comportamentele abuzive, urâte sau provocatoare în conversațiile OOC.' },
-        { id: 'spam', titlu: 'Spam', descriere: 'Mesaje repetate fără sens sau publicitate neautorizată în canalele Discord.' },
-        { id: 'flood', titlu: 'Flood', descriere: 'Folosirea unui număr mare de mesaje într-un interval scurt pentru a deranja alți utilizatori.' },
-        { id: 'nsfw', titlu: 'Conținut NSFW', descriere: 'Distribuirea de conținut explicit sau inadecvat în canalele Discord.' },
+  { id: 'limbaj', titlu: 'Limbaj civilizat', descriere: 'Vă încurajăm să aveți un limbaj civilizat pentru a crea și menține o comunitate cât mai pozitivă. Injuriile de orice fel sunt INTERZISE, indiferent dacă sunt adresate STAFF-ului sau altor membri ai comunității. Glumele sunt permise doar între prieteni care le acceptă.' },
+  { id: 'reclama', titlu: 'Reclamă', descriere: 'Este strict INTERZISĂ promovarea serverelor de Discord / FiveM, altele decât cele ale comunității Ecstasy România sau a persoanelor din mediul online. Este permisă promovarea comunității Ecstasy România de către membri doar cu gradul @Youtuber, în canalul ┕🎥 Youtube.' },
+  { id: 'spam', titlu: 'Spam', descriere: 'SPAM-ul de orice fel este interzis. Pentru MENTIONS aveți dreptul la maxim 5 repetări. Evitați mesajele scurte consecutive și încercați să transmiteți un mesaj clar.' },
+  { id: 'rooms', titlu: 'Respectarea canalelor', descriere: 'Fiecare cameră are un scop specific. Vă rugăm să respectați topica fiecărei camere. FREECHAT este singura cameră unde comunicarea e mai degajată, dar păstrați bunul simț.' },
+  { id: 'evading', titlu: 'Evading', descriere: 'Este interzis să părăsiți serverul pentru a scăpa de un rol sau warn. Este interzis să reintrați cu alt cont după ce ați fost banat (Ban Evading).' },
+  { id: 'doxing', titlu: 'Doxing', descriere: 'Este interzisă dezvăluirea publică a informațiilor personale ale altor membri (poze, IP, adresă etc.) fără acordul lor.' },
+  { id: 'bullying', titlu: 'Bullying', descriere: 'Orice formă de bullying este strict interzisă și se sancționează sever.' },
+  { id: 'vanzari', titlu: 'Vânzări/achiziții', descriere: 'Este interzisă vânzarea sau cumpărarea de produse/servicii precum conturi, jocuri, CD-KEYS, hack-uri etc.' },
+  { id: 'ic', titlu: 'Postări poze/video IC', descriere: 'Postările de acest tip sunt permise doar dacă sunt realizate pe serverul ECSTASY ROMÂNIA și în canalele corespunzătoare.' },
+  { id: 'ooc', titlu: 'Postări poze/video OOC', descriere: 'Sunt permise doar dacă respectă normele morale. Dacă apar mai multe persoane, este necesar acordul tuturor.' },
+  { id: 'cereri', titlu: 'Cereri / Aplicații', descriere: 'Folosiți modelele PINNED pentru cereri de grad/rol/ticket/aplicații. Completați cu informații reale și relevante. Cererile neserioase nu sunt luate în considerare.' },
       ],
       jafuri: [
         { id: 'bijuterii', titlu: 'Jaf bijuterii', descriere: 'Furtul din bijuterii și restaurantele aflate sub protecția autorităților fără un plan detaliat.' },
         { id: 'banca', titlu: 'Jaf bancar', descriere: 'Atacarea băncii fără a respecta procedurile corecte sau fără roleplay detaliat.' }
       ],
       sanctiuni: [
-        { id: 'ban', titlu: 'Ban', descriere: 'Interzicerea accesului permanent sau temporar pe server pentru încălcări grave ale regulamentului.' },
-        { id: 'warn', titlu: 'Warning', descriere: 'Avertismente date pentru comportamente care nu respectă regulamentele, dar care nu necesită sancțiuni majore.' }
-      ]
+sanctiuni: [
+  { titlu: 'Fail Roleplay', descriere: '35 minute' },
+  { titlu: 'Power Gaming', descriere: '50 minute' },
+  { titlu: 'Meta Gaming', descriere: '50 minute' },
+  { titlu: 'Mixing', descriere: '45 minute' },
+  { titlu: 'Random Deathmatch', descriere: '60 minute' },
+  { titlu: 'Vehicle Deathmatch', descriere: '55 minute' },
+  { titlu: 'Rob & Kill / Kill & Rob', descriere: '55 minute' },
+  { titlu: 'Drop & Kill', descriere: '45 minute' },
+  { titlu: 'Revenge Kill', descriere: '70 minute + 1 warn' },
+  { titlu: 'Non-Fear (Pasiv)', descriere: '25 minute' },
+  { titlu: 'Non-Fear (Agresiv)', descriere: '50 minute' },
+  { titlu: 'Post Hunting', descriere: '75 minute + 1 warn' },
+  { titlu: 'Cop Bait', descriere: '40 minute' },
+  { titlu: 'Provoking', descriere: '65 minute + 1 warn' },
+  { titlu: 'Car Ram', descriere: '35 minute' },
+  { titlu: 'Car Surf', descriere: '45 minute + 1 warn' },
+  { titlu: 'Ninja Jack', descriere: '50 minute' },
+  { titlu: 'Olimpic Swim', descriere: '30 minute' },
+  { titlu: 'Infinity Punch', descriere: '55 minute' },
+  { titlu: 'Fake Cop', descriere: '80 minute + 1 warn' },
+  { titlu: 'Fake Mafia', descriere: '85 minute + 1 warn' },
+  { titlu: 'Roleplay Scârbos', descriere: '200 minute + 1 warn' },
+  { titlu: 'Suferințe (RP)', descriere: '100 minute + 1 warn' },
+  { titlu: 'Disconnect în Roleplay', descriere: '90 minute + 1 warn' },
+  { titlu: 'Comportament de Bombardier', descriere: '150 minute + 1 warn' },
+  { titlu: 'Deathmatch', descriere: '75 minute + 1 warn' },
+  { titlu: 'Bug Abuse', descriere: '200 minute + 1 warn' },
+  { titlu: 'Amenințări', descriere: '150 minute + 1 warn' },
+  { titlu: 'Refuz RP', descriere: '100 minute' },
+  { titlu: 'LER', descriere: '50 minute' },
+  { titlu: 'Fake Crash', descriere: '100 minute' },
+  { titlu: 'Armă în zonă publică', descriere: '60 minute' },
+  { titlu: 'Troll', descriere: '500 minute' },
+  { titlu: 'Reclamă', descriere: 'Ban permanent' },
+
+  // Chat
+  { titlu: 'Prelungire / Exces (chat)', descriere: '10 - 30 minute' },
+  { titlu: 'Spam (chat)', descriere: '30 - 60 minute' },
+  { titlu: 'Caps Lock (chat)', descriere: '30 minute' },
+  { titlu: 'Mixing în chat', descriere: '30 minute' },
+  { titlu: 'Insulte (chat)', descriere: '60 - 120 minute' },
+  { titlu: 'Suferințe (chat)', descriere: '60 - 180 minute' },
+  { titlu: 'Bullying (chat)', descriere: '180 minute' },
+
+  // Nota finală
+  {
+    titlu: '!!! ATENȚIE !!!',
+    descriere: 'Ne rezervăm dreptul de a face modificări fără notificare prealabilă. Respectați regulamentul pentru o experiență civilizată pe server.'
+  }
+]
     };
 
     const buttons = document.querySelectorAll('.tab-btn');
