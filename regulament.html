@@ -6,6 +6,36 @@
   <title>Regulament - Ecstasy</title>
   <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=68297f84&is=68282e04&hm=44bce57c9d828aa7d4e64679582b4368d2b5282b4afee281685c88b1fbd40aa4&=&format=webp&quality=lossless&width=960&height=960" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .rule-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #8bbfdd;
+    }
+    .rule-description {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+    }
+    .tab-btn:hover {
+      background-color: #3b82f6;
+    }
+    .active-tab {
+      background-color: #1e40af;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
   <div class="flex min-h-screen">
@@ -15,7 +45,7 @@
       <h2 class="text-2xl font-bold text-center mb-6">Ecstasy</h2>
       <nav class="space-y-4 w-full">
         <a href="index.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Shop</a>
-        <a href="regulament.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Regulament</a>
+        <a href="regulament.html" class="block text-center bg-blue-700 py-2 rounded">Regulament</a>
         <a href="aplicatii.html" class="block text-center bg-blue-600 hover:bg-blue-700 py-2 rounded">Aplicații</a>
       </nav>
     </aside>
@@ -23,17 +53,20 @@
     <!-- Main Content -->
     <main class="flex-1 p-8">
       <header class="mb-6">
-        <h1 class="text-4xl font-bold mb-2">📜 Regulament</h1>
+        <h1 class="text-4xl font-bold mb-2">Regulamente Ecstasy</h1>
         <div class="bg-blue-900 text-blue-300 p-4 rounded-md shadow-md">
-          ℹ️ Selectează o categorie și apasă pe fiecare regulă pentru detalii.
+          Citiți regulamentele cu mare atenție!
         </div>
       </header>
 
       <!-- Tabs -->
       <div class="flex space-x-4 mb-6">
-        <button onclick="switchTab('general')" class="tab-btn bg-blue-700 px-4 py-2 rounded">General</button>
-        <button onclick="switchTab('discord')" class="tab-btn bg-gray-700 px-4 py-2 rounded hover:bg-gray-600">Discord</button>
-        <button onclick="switchTab('mafii')" class="tab-btn bg-gray-700 px-4 py-2 rounded hover:bg-gray-600">Mafii</button>
+        <button onclick="switchTab('general')" id="tab-general" class="tab-btn active-tab">General</button>
+        <button onclick="switchTab('discord')" id="tab-discord" class="tab-btn">Discord</button>
+        <button onclick="switchTab('factiuni')" id="tab-sanctiuni" class="tab-btn">Fanctiuni</button>
+        <button onclick="switchTab('turfs')" id="tab-turfs" class="tab-btn">Turf-uri</button>
+        <button onclick="switchTab('jafuri')" id="tab-jafuri" class="tab-btn">Jafuri</button>
+        <button onclick="switchTab('sanctiuni')" id="tab-sanctiuni" class="tab-btn">Sanctiuni</button>
       </div>
 
       <!-- Regulament Section -->
@@ -46,108 +79,212 @@
   <script>
     const regulamente = {
       general: [
-  { id: 'rp', titlu: 'Roleplay (RP)', descriere: 'Simularea vieții reale în joc, totalitatea acțiunilor pe care un om le-ar face în viața reală.' },
-  { id: 'frp', titlu: 'Fail Roleplay (FRP)', descriere: 'Nerespectarea regulilor RP, de exemplu să dai jaf doar pentru a te bate cu poliția.' },
-  { id: 'ic', titlu: 'In Character (IC)', descriere: 'Simularea vieții reale prin dialog, acțiuni, sentimente etc.' },
-  { id: 'ooc', titlu: 'Out Of Character (OOC)', descriere: 'Ieșirea din personaj. Se face pe canale dedicate precum Chat Global sau Discord, cu reguli stricte.' },
-  { id: 'pg', titlu: 'Power-Gaming (PG)', descriere: 'Folosirea de acțiuni imposibile sau forțarea altui jucător în RP.' },
-  { id: 'mg', titlu: 'Meta-Gaming (MG)', descriere: 'Utilizarea informațiilor OOC în scopuri IC pentru avantaj.' },
-  { id: 'mixing', titlu: 'Mixing', descriere: 'Încurcarea informațiilor IC cu cele OOC și invers.' },
-  { id: 'rdm', titlu: 'Random Death Match (RDM)', descriere: 'Atacarea sau uciderea unui player fără motiv sau fără roleplay.' },
-  { id: 'vdm', titlu: 'Vehicle Deathmatch (VDM)', descriere: 'Lovirea intenționată a unui jucător cu vehiculul fără RP.' },
-  { id: 'rk', titlu: 'Revenge Kill (RK)', descriere: 'Răzbunarea după ce ai fost omorât, căutând atacatorul după respawn.' },
-  { id: 'pk', titlu: 'Player Kill (PK)', descriere: 'Resetarea informațiilor IC după moarte.' },
-  { id: 'ck', titlu: 'Character Kill (CK)', descriere: 'Uciderea completă a personajului. După CK, identitatea se schimbă.' },
-  { id: 'nf', titlu: 'Non-Fear Roleplay (NF)', descriere: 'Lipsa simulării fricii în fața pericolelor sau pedepselor.' },
-  { id: 'posthunting', titlu: 'Post Hunting', descriere: 'Reclamații create din răzbunare sau pentru sancționarea jucătorilor fără motiv serios.' },
-  { id: 'copbait', titlu: 'Cop Bait', descriere: 'Provocarea poliției IC pentru a te urmări.' },
-  { id: 'provoking', titlu: 'Provoking', descriere: 'Provocarea altor jucători pentru a intra în conflict IC.' },
-  { id: 'carram', titlu: 'Car Ram', descriere: 'Lovirea unui jucător cu mașina și staționarea pe el sau lovirea intenționată a altor mașini.' },
-  { id: 'carsurf', titlu: 'Car Surf', descriere: 'Statul pe un vehicul aflat în mișcare fără motiv RP.' },
-  { id: 'ninjajack', titlu: 'Ninja Jack', descriere: 'Furtul unei mașini fără chei și fără roleplay corespunzător.' },
-  { id: 'olympicswim', titlu: 'Olimpic Swim', descriere: 'Înotul continuu fără oboseală pentru a scăpa de situații RP.' },
-  { id: 'infinitypunch', titlu: 'Infinity Punch', descriere: 'Lovituri continue prin abuz de comenzi pentru avantaj.' },
-  { id: 'fakecop', titlu: 'Fake COP', descriere: 'Folosirea uniformei de polițist fără a face parte din facțiune.' },
-  { id: 'fakemafia', titlu: 'Fake Mafia', descriere: 'Pretinderea apartenenței la o mafie fără a face parte din ea.' },
-  { id: 'rpinterzis', titlu: 'Roleplay scârbos/conținut sexual', descriere: 'RP de tip abuz sexual, pedofilie, canibalism, etc. este interzis.' },
-  { id: 'suferinte', titlu: 'Suferințe', descriere: 'Jignirile și plângerile pe chat/voice sunt interzise.' },
-  { id: 'disconnect', titlu: 'Disconnect în Roleplay', descriere: 'Ieșirea de pe server în mijlocul unui roleplay.' },
-  { id: 'bombardier', titlu: 'Comportament de bombardier', descriere: 'Comportament toxic permis doar în RP. Interzis cu jucători random.' },
-  { id: 'dm', titlu: 'Death Match (DM)', descriere: 'Împușcături fără scop RP între mai mulți jucători.' },
-  { id: 'bugabuse', titlu: 'Bug Abuse', descriere: 'Folosirea bug-urilor pentru obținerea de avantaje. Strict interzis.' },
-  { id: 'amenintari', titlu: 'Amenințări (IC/OOC)', descriere: 'Comportament superior sau intimidant față de alți jucători, în joc sau în afara jocului.' },
-  { id: 'reclama', titlu: 'Reclamă', descriere: 'Este interzisă promovarea altor comunități. Se sancționează cu ban permanent.' },
-  { id: 'caziere', titlu: 'Caziere', descriere: 'La acumularea a 5 caziere, jucătorul primește automat CK.' },
-  { id: 'refuzrp', titlu: 'Refuz ROLEPLAY', descriere: 'Refuzul de a interacționa RP cu un alt jucător, fără motiv.' },
-  { id: 'ler', titlu: 'Low Effort Roleplay (LER)', descriere: 'Lipsa de implicare în roleplay.' },
-  { id: 'fakecrash', titlu: 'Fake Crash', descriere: 'Deconectare intenționată pentru a evita o sancțiune sau o situație.' },
-  { id: 'arma', titlu: 'Armă în zonă publică', descriere: 'Scoaterea sau folosirea armelor în public fără RP.' },
+        { titlu: 'Roleplay (RP)', descriere: 'Simularea vieții reale în joc, totalitatea acțiunilor pe care un om le-ar face în viața reală.' },
+        { titlu: 'Fail Roleplay (FRP)', descriere: 'Nerespectarea regulilor RP, de exemplu să dai jaf doar pentru a te bate cu poliția.' },
+        { titlu: 'In Character (IC)', descriere: 'Simularea vieții reale prin dialog, acțiuni, sentimente etc.' },
+        { titlu: 'Out Of Character (OOC)', descriere: 'Ieșirea din personaj. Se face pe canale dedicate precum Chat Global sau Discord, cu reguli stricte.' },
+        { titlu: 'Power-Gaming (PG)', descriere: 'Folosirea de acțiuni imposibile sau forțarea altui jucător în RP.' },
+        { titlu: 'Meta-Gaming (MG)', descriere: 'Utilizarea informațiilor OOC în scopuri IC pentru avantaj.' },
+        { titlu: 'Mixing', descriere: 'Încurcarea informațiilor IC cu cele OOC și invers.' },
+        { titlu: 'Random Death Match (RDM)', descriere: 'Atacarea sau uciderea unui player fără motiv sau fără roleplay.' },
+        { titlu: 'Vehicle Deathmatch (VDM)', descriere: 'Lovirea intenționată a unui jucător cu vehiculul fără RP.' },
+        { titlu: 'Revenge Kill (RK)', descriere: 'Răzbunarea după ce ai fost omorât, căutând atacatorul după respawn.' },
+        { titlu: 'Player Kill (PK)', descriere: 'Resetarea informațiilor IC după moarte.' },
+        { titlu: 'Character Kill (CK)', descriere: 'Uciderea completă a personajului. După CK, identitatea se schimbă.' },
+        { titlu: 'Non-Fear Roleplay (NF)', descriere: 'Lipsa simulării fricii în fața pericolelor sau pedepselor.' },
+        { titlu: 'Post Hunting', descriere: 'Reclamații create din răzbunare sau pentru sancționarea jucătorilor fără motiv serios.' },
+        { titlu: 'Cop Bait', descriere: 'Provocarea poliției IC pentru a te urmări.' },
+        { titlu: 'Provocarea', descriere: 'Provocarea altor jucători pentru a intra în conflict IC.' },
+        { titlu: 'Car Ram', descriere: 'Lovirea unui jucător cu mașina și staționarea pe el sau lovirea intenționată a altor mașini.' },
+        { titlu: 'Car Surf', descriere: 'Statul pe un vehicul aflat în mișcare fără motiv RP.' },
+        { titlu: 'Ninja Jack', descriere: 'Furtul unei mașini fără chei și fără roleplay corespunzător.' },
+        { titlu: 'Olimpic Swim', descriere: 'Înotul continuu fără oboseală pentru a scăpa de situații RP.' },
+        { titlu: 'Infinity Punch', descriere: 'Lovituri continue prin abuz de comenzi pentru avantaj.' },
+        { titlu: 'Fake COP', descriere: 'Folosirea uniformei de polițist fără a face parte din facțiune.' },
+        { titlu: 'Fake Mafia', descriere: 'Pretinderea apartenenței la o mafie fără a face parte din ea.' },
+        { titlu: 'Roleplay scârbos/conținut sexual', descriere: 'RP de tip abuz sexual, pedofilie, canibalism, etc. este interzis.' },
+      ],
+      discord: [
+        { titlu: 'Limbaj civilizat', descriere: 'Vă încurajăm să aveți un limbaj civilizat pentru a crea și menține o comunitate cât mai pozitivă.' },
+        { titlu: 'Reclamă', descriere: 'Este strict INTERZISĂ promovarea serverelor de Discord / FiveM.' },
+        { titlu: 'Spam', descriere: 'Nu se acceptă SPAM de niciun fel. Pentru MENTIONS, sunt permise maxim 5 repetări.' },
+        { titlu: 'Topic Rooms', descriere: 'Fiecare cameră are un scop clar, folosiți-le conform rolului pentru a evita neînțelegeri. În FREECHAT e permisă o discuție mai liberă, dar cu respect și bun simț' },
+        { titlu: 'Evading', descriere: 'Nu părăsiți serverul pentru a scăpa de roluri sau sancțiuni și nu creați conturi noi pentru a evita ban-uri.' },
+        { titlu: 'Doxing', descriere: 'Nu dezvăluiți informații personale ale altora fără acord (poze, IP, adrese etc.).' },
+        { titlu: 'Bullying', descriere: 'Orice formă de bullying este strict interzisă și va fi sancționată.).' },
+        { titlu: 'Vinderea sau achiziționarea unor produse sau servicii ', descriere: 'Nu vindeți sau cumpărați produse sau servicii (conturi, jocuri, iteme, hack-uri).' },
+        { titlu: 'Postări poze/video IC', descriere: 'Permise doar dacă sunt realizate pe serverul ECSTASY ROMÂNIA și în canalele dedicate).' },
+        { titlu: 'Postări poze/video OOC', descriere: 'Permise dacă respectă normele morale și toate persoanele implicate sunt de acord..' },
+        { titlu: 'Cereri grade/roluri/ticket/aplicații', descriere: 'Folosiți modelele PINNED și oferiți informații reale. Cererile neserioase nu vor fi luate în considerare.' },
+
+      ],
+turfs: [
+  { 
+    titlu: 'Avertisment verbal / Out', 
+    descriere: 'Lipsa de respect, jigniri sau comportament problematic. Folosirea animațiilor de orice tip. Folosirea armelor 1 shot sau de spam este interzisă (Gadget, Revolver Mk2, Combat MG, MG, Sniper).' 
+  },
+  { 
+    titlu: 'Mafia Warn', 
+    descriere: 'Ieșirea de pe turf pentru a evita membrii celeilalte mafii. BAIT (intrare în turf urmată de ieșire). Folosirea vehiculelor pe turf. Utilizarea modurilor (FOV Mod, No Props, etc). Blind-fire și abuz de third person. Nepermiterea oponenților de a intra pe turf. Tragerea la intrare în turf sub 5 secunde. Tragerea prin texturi, OOT în IT și invers. Campatul excesiv. Poziționarea pe clădiri inaccesibile. Atac fără cerere și aprobare (excepții zile fără cerere). Neprezentare fără motiv. Neintrare pe durata turf-ului. Atacarea aceluiași turf de mai mult de 2 ori fără cerere.' 
+  },
+  { 
+    titlu: 'BAN permanent', 
+    descriere: 'Folosirea oricărui tip de HACK/CHEAT este interzisă.' 
+  },
+  { 
+    titlu: 'Obligații', 
+    descriere: 'După pierderea unui turf, așteptați 15 minute pentru următorul. Puteți deține maxim 3 turf-uri simultan (mai mult = Mafia Warn și pierderea celui mai recent turf). Respectați pauza de 15 minute în war-uri fără cerere dacă este solicitată. Opriți atacurile după al 4-lea turf în war-uri fără cerere.' 
+  },
+  { 
+    titlu: 'Atenție', 
+    descriere: 'Dacă ambele părți sunt sancționate, turf-ul revine facțiunii care îl deținea înainte de war și poate fi atacat abia a doua zi.' 
+  },
+  { 
+    titlu: 'Notă', 
+    descriere: 'Echipa ECSTASY ROMÂNIA își rezervă dreptul de a modifica regulamentul oricând.' 
+  }
 ],
 
-discord: [
-  { id: 'limbaj', titlu: 'Limbaj civilizat', descriere: 'Vă încurajăm să aveți un limbaj civilizat pentru a crea și menține o comunitate cât mai pozitivă. Injuriile de orice fel sunt INTERZISE, indiferent dacă sunt adresate STAFF-ului sau altor membri ai comunității. Glumele sunt permise doar între prieteni care le acceptă.' },
-  { id: 'reclama', titlu: 'Reclamă', descriere: 'Este strict INTERZISĂ promovarea serverelor de Discord / FiveM, altele decât cele ale comunității Ecstasy România sau a persoanelor din mediul online. Este permisă promovarea comunității Ecstasy România de către membri doar cu gradul @Youtuber, în canalul ┕🎥 Youtube.' },
-  { id: 'spam', titlu: 'Spam', descriere: 'SPAM-ul de orice fel este interzis. Pentru MENTIONS aveți dreptul la maxim 5 repetări. Evitați mesajele scurte consecutive și încercați să transmiteți un mesaj clar.' },
-  { id: 'rooms', titlu: 'Respectarea canalelor', descriere: 'Fiecare cameră are un scop specific. Vă rugăm să respectați topica fiecărei camere. FREECHAT este singura cameră unde comunicarea e mai degajată, dar păstrați bunul simț.' },
-  { id: 'evading', titlu: 'Evading', descriere: 'Este interzis să părăsiți serverul pentru a scăpa de un rol sau warn. Este interzis să reintrați cu alt cont după ce ați fost banat (Ban Evading).' },
-  { id: 'doxing', titlu: 'Doxing', descriere: 'Este interzisă dezvăluirea publică a informațiilor personale ale altor membri (poze, IP, adresă etc.) fără acordul lor.' },
-  { id: 'bullying', titlu: 'Bullying', descriere: 'Orice formă de bullying este strict interzisă și se sancționează sever.' },
-  { id: 'vanzari', titlu: 'Vânzări/achiziții', descriere: 'Este interzisă vânzarea sau cumpărarea de produse/servicii precum conturi, jocuri, CD-KEYS, hack-uri etc.' },
-  { id: 'ic', titlu: 'Postări poze/video IC', descriere: 'Postările de acest tip sunt permise doar dacă sunt realizate pe serverul ECSTASY ROMÂNIA și în canalele corespunzătoare.' },
-  { id: 'ooc', titlu: 'Postări poze/video OOC', descriere: 'Sunt permise doar dacă respectă normele morale. Dacă apar mai multe persoane, este necesar acordul tuturor.' },
-  { id: 'cereri', titlu: 'Cereri / Aplicații', descriere: 'Folosiți modelele PINNED pentru cereri de grad/rol/ticket/aplicații. Completați cu informații reale și relevante. Cererile neserioase nu sunt luate în considerare.' },
-],
+      jafuri: [
+        {
+          titlu: 'Reguli Generale',
+          descriere: `
+            <h3 class="font-semibold text-blue-400 mt-2">REGULI GENERALE</h3>
+<p>Primul polițist este considerat <strong>NEGOCIATOR</strong>. Jefuitorii NU au voie sa deschidă focul sau să-l captureze.<br>
+Jefuitorii sunt <strong>OBLIGAȚI</strong> să menționeze câți ostatici au asupra lor și câți infractori sunt.<br>
+Jefuitorilor le este <strong>INTERZIS</strong> să ia ostatici civili ce desfășoară joburi legale
+(politie, smurd, mecanic, gunoier, electrician, etc.)<br>
+Jefuitorii sunt <strong>OBLIGAȚI</strong> să menționeze dacă au om de teren (sniper).<br>
+În cazul negocierii pentru <strong>UNDĂ VERDE</strong>, jefuitorii NU au dreptul sa fugă și să rămână în Safe Zone, în schimb pot trece prin Safe Zone. Pot cere maxim 10 secunde.<br>
+Jefuitorii NU au voie să tragă în roțile mașinilor de poliție.<br>
+Jefuitorii NU au voie să iasă din magazin sau banca pe tot parcursul jafului.<br>
+Jefuitorii NU au voie să cheme Hitman pentru a asista la jaf.<br>
+Polițiștii NU au voie să intre peste jefuitori dacă au minim 1 ostatic în viața.<br>
+În cazul în care vrei sa dai o spargere la bancă îți este INTERZIS să intri, atât timp cât în interior se află alți jefuitori ce au în desfășurare un jaf.<br>
+Poliția trebuie să încerce să prindă jefuitorii în viața (dacă este posibil).<br>
+Disconnect-ul în timpul jafului este <strong>INTERZIS</strong>.</p>
 
-      mafii: [
-        { id: 'turfs', titlu: 'Turfs', descriere: 'Respectă programul și regulile turf-urilor setate de server.' },
-        { id: 'jafuri', titlu: 'jafuri', descriere: 'Jafurile trebuie organizate cu minim 4 membri prezenți, toți înarmați. Este obligatorie o situație de roleplay coerentă. Nu este permis spam-ul de jafuri și este interzis să începi un jaf dacă o altă facțiune e deja implicată într-unul. Poliția trebuie notificată IC pentru a putea interveni.' },
-        { id: 'allianta', titlu: 'Alianțe', descriere: 'Alianțele între mafii sunt interzise în afara evenimentelor.' },
+<h3 class="font-semibold text-blue-400 mt-4">1. MAGAZIN</h3>
+<ul class="list-disc list-inside space-y-1">
+  <li>Jefuitorii POT cere pe un ostatic între 1.000.000 și 3.000.000$.</li>
+  <li>Jefuitorii sunt OBLIGAȚI să aibă un singur ostatic.</li>
+  <li>Pentru a da jaf la magazin este nevoie de minim 2 și maxim 4 infractori.</li>
+  <li>Jefuitorii POT avea un GETAWAY.</li>
+  <li>Jefuitorilor le este INTERZIS să folosească arma cu lunetă (sniper) și să aibă persoane în afara magazinului (oameni de teren).</li>
+</ul>
+
+<h3 class="font-semibold text-blue-400 mt-4">2. BĂNCI MICI</h3>
+<ul class="list-disc list-inside space-y-1">
+  <li>Jefuitorii POT cere pe un ostatic între 3.000.000 și 6.000.000$.</li>
+  <li>Jefuitorii POT avea maxim 1 persoană în afara băncii (om de teren).</li>
+  <li>Jefuitorii NU sunt obligați să aibă ostatici pentru a începe jaful. Pot avea maxim 2 ostatici.</li>
+  <li>Pentru a efectua un jaf la bancă este nevoie de minim 3 infractori maxim 5.</li>
+</ul>
+
+<h3 class="font-semibold text-blue-400 mt-4">3. BĂNCI MARI (PACIFIC , BLAINE , CARTIER)</h3>
+<ul class="list-disc list-inside space-y-1">
+  <li>Jefuitorii POT cere pe un ostatic între 6.000.000 și 10.000.000$.</li>
+  <li>Jefuitorii sunt OBLIGAȚI să aibă minimum 3 și maximum 6 ostatici.</li>
+  <li>Este nevoie de minim 6 jefuitori pentru a da jaful la bancă.</li>
+  <li>Jefuitorii au posibilitatea de a avea maxim 3 persoane în afara băncii (oameni de teren,sniper). ATENȚIE!! Pot avea DOAR un sniper în afara băncii.</li>
+  <li>Jefuitorii au dreptul de a pleca de la jaf cu 2 ostatici doar dacă au 6 ostatici in banca.</li>
+  <li>ATENȚIE!!!!!! Nu exista posibilitatea de a negocia pentru UNDĂ VERDE!!</li>
+</ul>
+
+            </ul>
+          `
+        }
+      ],
+      sanctiuni: [
+        {
+          titlu: 'SANCȚIUNI RP & CHAT',
+          descriere: `
+            <h3 class="font-semibold text-blue-400 mt-2">SANCȚIUNI RP</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Fail Roleplay - 35 Minute</li>
+              <li>Power Gaming - 50 Minute</li>
+              <li>Meta Gaming - 50 Minute</li>
+              <li>Mixing - 45 Minute</li>
+              <li>Random Deathmatch - 60 Minute</li>
+              <li>Vehicle Deathmatch - 55 Minute</li>
+              <li>Rob&Kill, Kill&Rob - 55 Minute</li>
+              <li>Drop&Kill - 45 Minute</li>
+              <li>Revenge Kill - 70 Minute + 1 warn</li>
+              <li>Non Fear PASIV - 25 Minute</li>
+              <li>Non Fear AGRESIV - 50 Minute</li>
+              <li>Post Hunting - 75 Minute + 1 warn</li>
+              <li>Cop Bait - 40 Minute</li>
+              <li>Provoking - 65 Minute + 1 warn</li>
+              <li>Car Ram - 35 Minute</li>
+              <li>Car Surf - 45 Minute + 1 warn</li>
+              <li>Ninja jack - 50 Minute</li>
+              <li>Olimpic Swim - 30 Minute</li>
+              <li>Infinity Punch - 55 Minute</li>
+              <li>Fake Cop - 80 Minute + 1 warn</li>
+              <li>Fake Mafia - 85 Minute + 1 warn</li>
+              <li>Roleplay Scarbos - 200 Minute + 1 warn</li>
+              <li>Suferințe - 100 Minute + 1 warn</li>
+              <li>Disconnect in Roleplay - 90 Minute + 1 warn</li>
+              <li>Comportament de Bombardier - 150 Minute + 1 warn</li>
+              <li>Death Match - 75 Minute + 1 warn</li>
+              <li>Bug Abuse - 200 Minute + 1 warn</li>
+              <li>Amenințări - 150 Minute + 1 warn</li>
+              <li>Refuz RP - 100 Minute</li>
+              <li>LER - 50 Minute</li>
+              <li>Fake Crash - 100 Minute</li>
+              <li>Armă în zonă publică - 60 Minute</li>
+              <li>TROLL - 500 Minute</li>
+              <li>Reclamă - Ban Permanent</li>
+            </ul>
+
+            <h3 class="font-semibold text-blue-400 mt-4">SANCȚIUNI CHAT</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Prelungire / exces - 10 - 30 minute (în funcție de gravitate)</li>
+              <li>SPAM - 30 - 60 minute</li>
+              <li>CAPS - 30 minute</li>
+              <li>Mixing (inclusiv menționare {ic}) - 30 minute</li>
+              <li>Insulte - 60 - 120 minute</li>
+              <li>Suferințe - 60 - 180 minute</li>
+              <li>Bullying - 180 minute</li>
+            </ul>
+
+            <div class="mt-6 text-yellow-400 font-semibold">
+              !!! ATENȚIE !!!
+            </div>
+            <p class="mt-2">
+              Ne rezervăm dreptul de a face modificări fără a anunța!<br />
+              Vă încurajăm să petreceți timp pe server într-un mod civilizat și să respectați regulamentul,
+              astfel încât să nu fie nevoie să vizualizați des acest document!<br />
+              <strong class="text-green-400">Have fun!!!</strong>
+            </p>
+          `
+        }
       ]
     };
 
-
-    
-    let currentTab = 'general';
-
     function switchTab(tab) {
-      currentTab = tab;
+      // Activează butonul tab selectat
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+      document.getElementById('tab-' + tab).classList.add('active-tab');
 
-      // Schimbă stilul la butoane
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('bg-blue-700');
-        btn.classList.add('bg-gray-700', 'hover:bg-gray-600');
-      });
-      event.target.classList.add('bg-blue-700');
-      event.target.classList.remove('bg-gray-700', 'hover:bg-gray-600');
-
-      loadRules();
-    }
-
-    function loadRules() {
+      // Afișează regulile din tab-ul selectat
       const container = document.getElementById('reguli-list');
       container.innerHTML = '';
-      regulamente[currentTab].forEach(regula => {
-        const btn = document.createElement('button');
-        btn.className = "w-full text-left bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded font-medium";
-        btn.innerText = `🔹 ${regula.titlu}`;
-        btn.onclick = () => {
-          const el = document.getElementById(`content-${regula.id}`);
-          el.classList.toggle('hidden');
-        };
 
-        const content = document.createElement('div');
-        content.id = `content-${regula.id}`;
-        content.className = "hidden bg-gray-800 px-4 py-3 rounded shadow-inner text-gray-300";
-        content.innerText = regula.descriere;
-
-        container.appendChild(btn);
-        container.appendChild(content);
+      regulamente[tab].forEach(rule => {
+        const div = document.createElement('div');
+        div.classList.add('p-4', 'bg-gray-800', 'rounded-md', 'mb-4');
+        div.innerHTML = `
+          <div class="rule-title">${rule.titlu}</div>
+          <div class="rule-description">${rule.descriere}</div>
+        `;
+        container.appendChild(div);
       });
     }
 
-    // Încarcă primul tab la început
-    window.onload = loadRules;
+    // Setează tab-ul general ca default la încărcare
+    switchTab('general');
   </script>
 </body>
 </html>
- 
+
