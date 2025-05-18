@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login ECSTASY</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4b006e, #7f00ff);
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .login-container {
+    background: linear-gradient(145deg, #5a008a, #33004d);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #9a4dff;
+    width: 350px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  label {
+    display: block;
+    margin: 15px 0 5px;
+  }
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+  }
+  button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: #7a00ff;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background: #9a4dff;
+  }
+  #message {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #ffbaba;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Autentificare / Înregistrare</h2>
+    <label for="name">Nume complet:</label>
+    <input id="name" type="text" placeholder="Ex: Ion Popescu" />
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" placeholder="exemplu@mail.com" />
+
+    <button onclick="registerOrLogin()">Login / Înregistrare</button>
+
+    <div id="message"></div>
+  </div>
+
+<script>
+  function getUsers() {
+    const usersJson = localStorage.getItem('users');
+    if (!usersJson) return [];
+    return JSON.parse(usersJson);
+  }
+
+  function saveUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+  }
+
+  function registerOrLogin() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim().toLowerCase();
+    const message = document.getElementById('message');
+
+    if (!name || !email) {
+      message.textContent = 'Completează ambele câmpuri!';
+      return;
+    }
+
+    const users = getUsers();
+    let user = users.find(u => u.email === email);
+
+    if (user) {
+      // Există contul, login
+      localStorage.setItem('loggedUserEmail', email);
+      message.style.color = '#a8ffa8';
+      message.textContent = `Bun venit înapoi, ${user.name}! Redirecționare...`;
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    } else {
+      // Creare cont nou
+      const newUser = {
+        name,
+        email,
+        profileImage: `https://i.pravatar.cc/150?u=${encodeURIComponent(email)}`
+      };
+      users.push(newUser);
+      saveUsers(users);
+      localStorage.setItem('loggedUserEmail', email);
+      message.style.color = '#a8ffa8';
+      message.textContent = `Cont creat pentru ${name}! Redirecționare...`;
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+  }
+</script>
+</body>
+</html>

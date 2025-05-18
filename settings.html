@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Setări - Ecstasy Shop</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4b006e, #7f00ff);
+    color: #eee;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+  }
+  .sidebar {
+    width: 280px;
+    background: linear-gradient(145deg, #5a008a, #33004d);
+    padding: 30px 25px;
+    border-radius: 0 30px 30px 0;
+    color: #d3baff;
+    position: fixed;
+    height: 100vh;
+  }
+  .sidebar img {
+    width: 160px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 20px;
+  }
+  .sidebar h2 {
+    font-size: 2.7rem;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .sidebar ul li {
+    margin: 22px 0;
+  }
+  .sidebar ul li a {
+    color: #d3baff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    display: block;
+  }
+  .sidebar ul li a:hover {
+    color: #fff;
+  }
+  .main {
+    margin-left: 300px;
+    padding: 40px 50px;
+    flex: 1;
+  }
+  header h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px #a162ff;
+  }
+
+  form {
+    background: linear-gradient(145deg, #5f00b3, #34006f);
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 30px 35px;
+    border-radius: 25px;
+    box-shadow: 0 0 15px #9a4dff;
+    font-size: 1.3rem;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="url"] {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  input[type="submit"] {
+    background-color: #7a00ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  input[type="submit"]:hover {
+    background-color: #9a4dff;
+  }
+
+  #profile-menu {
+    position: fixed;
+    top: 15px;
+    right: 25px;
+    background: rgba(90, 0, 140, 0.8);
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 15px #9a4dff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #e6d9ff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    user-select: none;
+    z-index: 1000;
+    min-width: 270px;
+  }
+  #profile-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  #profile-menu .name-email {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #profile-menu .name-email .name {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  #profile-menu .name-email .email {
+    font-weight: 400;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    word-break: break-all;
+  }
+  #profile-menu button {
+    background-color: #7a00ff;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  #profile-menu button:hover {
+    background-color: #9a4dff;
+  }
+  #profile-menu.hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="https://media.discordapp.net/attachments/1153942954650648657/1373555122256347136/ECSTASY.png?ex=682ad664&is=682984e4&hm=f7b4ea67bda50ac3016bf2c64ed1a58865cc80ed41ba80d70c2ceba132a22e77&=&format=webp&quality=lossless&width=958&height=958" alt="ECSTASY Logo" />
+    <h2>ECSTASY</h2>
+    <ul>
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="regulament.html">Regulament</a></li>
+      <li><a href="aplicatii.html">Aplicații</a></li>
+      <li><a href="update.html">Update-uri Recente</a></li>
+      <li><a href="settings.html">Setări</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Setări Cont</h1>
+    </header>
+
+    <form id="settings-form">
+      <label for="name">Nume:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="profileImage">URL Poză Profil:</label>
+      <input type="url" id="profileImage" name="profileImage" placeholder="https://exemplu.com/poza.jpg" />
+
+      <input type="submit" value="Salvează modificările" />
+    </form>
+  </div>
+
+  <div id="profile-menu" class="hidden" title="Profil Utilizator">
+    <img id="profile-pic" src="" alt="Poza Profil" />
+    <div class="name-email">
+      <div class="name" id="profile-name"></div>
+      <div class="email" id="profile-email"></div>
+    </div>
+    <button onclick="window.location.href='settings.html'">Setări</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+<script>
+  function getUsers() {
+    const usersJson = localStorage.getItem('users');
+    if (!usersJson) return [];
+    return JSON.parse(usersJson);
+  }
+  function saveUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+  }
+
+  function loadProfile() {
+    const loggedEmail = localStorage.getItem('loggedUserEmail');
+    if (!loggedEmail) {
+      document.getElementById('profile-menu').classList.add('hidden');
+      alert('Nu ești autentificat. Vei fi redirecționat către pagina de login.');
+      setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+      return;
+    }
+    const users = getUsers();
+    const user = users.find(u => u.email === loggedEmail);
+
+    if (!user) {
+      alert('Contul nu a fost găsit. Vei fi redirecționat către login.');
+      localStorage.removeItem('loggedUserEmail');
+      setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+      return;
+    }
+
+    document.getElementById('profile-name').textContent = user.name;
+    document.getElementById('profile-email').textContent = user.email;
+    document.getElementById('profile-pic').src = user.profileImage || 'https://i.pravatar.cc/150?u=default';
+
+    document.getElementById('profile-menu').classList.remove('hidden');
+
+    // Populează formularul de setări
+    document.getElementById('name').value = user.name;
+    document.getElementById('email').value = user.email;
+    document.getElementById('profileImage').value = user.profileImage || '';
+  }
+
+  function logout() {
+    localStorage.removeItem('loggedUserEmail');
+    window.location.href = 'login.html';
+  }
+
+  document.getElementById('settings-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const profileImage = document.getElementById('profileImage').value.trim();
+
+    if (!name || !email) {
+      alert('Numele și email-ul sunt obligatorii!');
+      return;
+    }
+
+    const users = getUsers();
+    const loggedEmail = localStorage.getItem('loggedUserEmail');
+    const userIndex = users.findIndex(u => u.email === loggedEmail);
+
+    if (userIndex === -1) {
+      alert('Contul nu a fost găsit.');
+      return;
+    }
+
+    // Verifică dacă email-ul nou este deja folosit de altcineva
+    if (email !== loggedEmail && users.some(u => u.email === email)) {
+      alert('Email-ul introdus este deja folosit de alt utilizator.');
+      return;
+    }
+
+    users[userIndex].name = name;
+    users[userIndex].email = email;
+    users[userIndex].profileImage = profileImage;
+
+    saveUsers(users);
+    localStorage.setItem('loggedUserEmail', email);
+
+    alert('Modificările au fost salvate!');
+
+    // Reîncarcă profilul (actualizat)
+    loadProfile();
+  });
+
+  window.onload = loadProfile;
+</script>
+</body>
+</html>
+

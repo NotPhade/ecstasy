@@ -1,0 +1,36 @@
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  const password = document.getElementById('password').value;
+  if (!email || !password) {
+    alert('Email și parolă sunt obligatorii!');
+    return;
+  }
+  let users = getUsers();
+
+  if (users[email]) {
+    // User exista -> verific parola
+    const hash = simpleHash(password);
+    if (users[email].passHash === hash) {
+      // Login ok
+      setLoggedUser(users[email]);
+    } else {
+      alert('Parolă incorectă!');
+    }
+  } else {
+    // User nu exista, trebuie nume sa inregistram
+    if (!name) {
+      alert('Introdu numele complet pentru înregistrare!');
+      return;
+    }
+    // Inregistrare nou user
+    users[email] = {
+      name: name,
+      email: email,
+      passHash: simpleHash(password)
+    };
+    saveUsers(users);
+    setLoggedUser(users[email]);
+  }
+});

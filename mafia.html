@@ -3,80 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Înființare Mafia/Gang - Ecstasy Shop</title>
+  <title>Înființare Mafia/Gang - ModelV Shop</title>
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Favicon cu logo-ul corect -->
-  <link rel="icon" href="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" type="image/png" />
+  <link rel="icon" href="https://media.discordapp.net/attachments/1153942954650648657/1373221980601319485/politia_gta-removebg-preview.png?ex=6829a021&is=68284ea1&hm=69ef3f5c2cbcf1593e7f22254563290721f254b4ae41d338b78de2b5e6d9b418&=&format=webp&quality=lossless" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
 
   <style>
-    /* Stil pentru logo în bara laterală */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #1e1e1e;
+      color: #f4f4f4;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #2c2c2c;
+      padding: 20px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
     .sidebar img {
       width: 80%;
-      max-width: 200px;
-      height: auto;
+      max-width: 180px;
       display: block;
-      margin: 20px auto;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #00d1ff;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #f4f4f4;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      color: #00d1ff;
+    }
+
+    .main {
+      margin-left: 260px;
+      padding: 40px;
+      flex: 1;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      text-align: center;
+      color: #00d1ff;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 40px;
+    }
+
+    section#mafia {
+      background-color: #2a2a2a;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in;
+    }
+
+    section#mafia h2, h3, h4 {
+      color: #f2b601;
+      margin-top: 30px;
+    }
+
+    section#mafia p, section#mafia li {
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: 0;
+      height: 2px;
+      background: #444;
+      margin: 40px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
 <body>
   <div class="sidebar">
-    <h2>ECSTASY</h2>
-    <!-- Logo în bara laterală -->
-    <img src="https://media.discordapp.net/attachments/1338565771860901888/1355248762087280760/ECSTASY.png?ex=6828d6c4&is=68278544&hm=1d287832d2f8a6bb0ece7d3d69ef2a9ca92e8a8a55315a204a5fc4d3bfadefa6&=&format=webp&quality=lossless&width=960&height=960" alt="ECSTASY Logo" />
+    <h2>ModelV</h2>
+    <img src="https://media.discordapp.net/attachments/1153942954650648657/1373221980601319485/politia_gta-removebg-preview.png?ex=6829a021&is=68284ea1&hm=69ef3f5c2cbcf1593e7f22254563290721f254b4ae41d338b78de2b5e6d9b418&=&format=webp&quality=lossless" alt="ModelV Logo" />
     <ul>
-      <li><a href="index.html">Shop</a></li>
-      <li><a href="regulament.html">Regulament</a></li>
-      <li><a href="aplicatii.html">Aplicații</a></li>
+      <li><a href="index.html">🏠 Shop</a></li>
+      <li><a href="regulament.html">📜 Regulament</a></li>
+      <li><a href="aplicatii.html">📝 Aplicații</a></li>
+      <li><a href="update.html">🛠️ Update-uri</a></li>
     </ul>
   </div>
 
   <div class="main">
     <header>
-      <h1>Înființare Mafia/Gang - Ecstasy Shop</h1>
+      <h1>Înființare Mafia / Gang</h1>
     </header>
 
-    <!-- Secțiune Mafia/Gang -->
     <section id="mafia">
-      <h2>🕵️‍♂️ INFINTARE MAFIE SAU GANG</h2>
-      <p>Dacă doriți să înființați o mafie, aici sunt toate informațiile necesare.</p>
-      <p><strong>Mafia</strong>: Este o organizație criminală bine organizată, cu o structură ierarhică rigidă și au tendința de a fi vechi și să opereze pe termen lung, fiind adesea implicate în mai multe domenii ilegale.</p>
+      <h2>🕵️‍♂️ Ce este o Mafie?</h2>
+      <p>O <strong>mafia</strong> este o organizație criminală structurată, cu roluri bine definite și scopuri precise. Funcționează pe termen lung și implică activități ilegale diverse.</p>
 
-      <h3>🔫 MAFIE</h3>
-      <p>Pentru a putea achiziționa mafia, trebuie să aveți minim 4 membri!</p>
+      <h3>🔫 Cerințe pentru Înființare</h3>
+      <p>Trebuie să aveți minim <strong>4 membri</strong> pentru a putea achiziționa o mafie!</p>
 
-      <h4>Ce îți oferă:</h4>
+      <h4>✔️ Beneficii incluse:</h4>
       <ul>
-        <li>12 Sloturi (1 Lider și 11 Membri)</li>
-        <li>TAG Vizibil pe chat joc</li>
-        <li>Grad pe Discord</li>
-        <li>Sediu la alegere</li>
-        <li>Gun Shop</li>
-        <li>Garaj Mașini</li>
-        <li>Contact cu Sindicatul</li>
+        <li>12 Sloturi (1 Lider + 11 Membri)</li>
+        <li>TAG Vizibil în Chat</li>
+        <li>Grad personalizat pe Discord</li>
+        <li>Sediu personalizat la alegere</li>
+        <li>Acces la Gun Shop</li>
+        <li>Garaj cu mașini</li>
+        <li>Colaborare cu Sindicatul</li>
       </ul>
 
-      <h4>Prețuri pentru Mafia:</h4>
+      <h4>💰 Prețuri Mafia:</h4>
       <ul>
-        <li><strong>[10 Coins]</strong> Întreținere lunară | Prima lună gratis!</li>
-        <li><strong>[20 Coins]</strong> Lunar</li>
-        <li><strong>[50 Coins]</strong> Permanent</li>
+        <li><strong>10 Coins</strong> - Întreținere lunară (Prima lună GRATIS)</li>
+        <li><strong>20 Coins</strong> - Lunar</li>
+        <li><strong>50 Coins</strong> - Permanent</li>
       </ul>
-      
+
       <hr>
 
-      <h3>⚙️ Lucruri ce puteți adăuga la mafie sau la gang:</h3>
+      <h3>⚙️ Upgrade-uri Opționale:</h3>
       <ul>
-        <li><strong>Adăugare Elicopter</strong> --> [25 Coins]</li>
-        <li><strong>Adăugare Barca</strong> --> [15 Coins]</li>
-        <li><strong>Adăugare Magazin Alimentar</strong> --> [10 Coins]</li>
-        <li><strong>Adăugare Magazin de Haine</strong> --> [10 Coins]</li>
-        <li><strong>Adăugare Mașină Personalizată</strong> --> [20 Coins]</li>
-        <li><strong>Adăugare Slot</strong> --> [2 Coins]</li>
-        <li><strong>Schimbare Nume</strong> --> [15 Coins]</li>
-        <li><strong>Mutare Sediu</strong> --> [35 Coins]</li>
-        <li><strong>Mapping</strong> --> [35 Coins]</li>
+        <li>🚁 <strong>Elicopter</strong> – 25 Coins</li>
+        <li>🚤 <strong>Barcă</strong> – 15 Coins</li>
+        <li>🛒 <strong>Magazin Alimentar</strong> – 10 Coins</li>
+        <li>👔 <strong>Magazin de Haine</strong> – 10 Coins</li>
+        <li>🚗 <strong>Mașină Personalizată</strong> – 20 Coins</li>
+        <li>➕ <strong>Slot Suplimentar</strong> – 2 Coins</li>
+        <li>🔄 <strong>Schimbare Nume</strong> – 15 Coins</li>
+        <li>📍 <strong>Mutare Sediu</strong> – 35 Coins</li>
+        <li>🛠️ <strong>Mapping Personalizat</strong> – 35 Coins</li>
       </ul>
     </section>
   </div>
