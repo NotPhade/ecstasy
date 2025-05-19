@@ -257,48 +257,61 @@
       }
     }
 
-    // Funcția de vizualizare aplicații
-    function afiseazaAplicatii(departament) {
-      const container = document.getElementById("listaAplicatii");
-      container.innerHTML = ""; // Resetarea containerului înainte de a-l popula
+   function afiseazaAplicatii(departament) {
+  const container = document.getElementById("listaAplicatii");
+  container.innerHTML = ""; // Resetare
 
-      Object.entries(localStorage).forEach(([key, val]) => {
-        if (isValidJson(val)) {
-          const app = JSON.parse(val);
-          if (app.departament === departament) {
-            const div = document.createElement("div");
-            div.className = "aplicatie";
-            const statusClass = app.status === "acceptat" ? "acceptat" : app.status === "respins" ? "respins" : "";
+  Object.entries(localStorage).forEach(([key, val]) => {
+    if (isValidJson(val)) {
+      const app = JSON.parse(val);
+      if (app.departament === departament) {
+        const div = document.createElement("div");
+        div.className = "aplicatie";
 
-            // Structura HTML a aplicației conform formularului
-            div.innerHTML = `
-              <h3>Aplicație Departament: ${app.departament}</h3>
-              
-              <h4>Informații OOC (Out of Character)</h4>
-              <p><strong>Nume (OOC):</strong> ${app.nume_ooc || 'N/A'}</p>
-              <p><strong>Vârstă (OOC):</strong> ${app.varsta_ooc || 'N/A'}</p>
-              <p><strong>Descriere Personală:</strong> ${app.descriere_ooc || 'N/A'}</p>
-              <p><strong>Ai citit regulamentul:</strong> ${app.regulament_ooc || 'N/A'}</p>
-
-              <h4>Informații IC (In Character)</h4>
-              <p><strong>Nume (IC):</strong> ${app.nume_ic || 'N/A'}</p>
-              <p><strong>Vârstă (IC):</strong> ${app.varsta_ic || 'N/A'}</p>
-              <p><strong>Descriere Personală:</strong> ${app.descriere_ic || 'N/A'}</p>
-              <p><strong>Beneficii pentru departament:</strong> ${app.beneficii_ic || 'N/A'}</p>
-
-              <h4>Date Contact:</h4>
-              <p><strong>Discord:</strong> ${app.discord || 'N/A'}</p>
-              <p><strong>Email:</strong> ${app.email || 'N/A'}</p>
-
-              <div class="statusButton ${statusClass}" onclick="actualizeazaStatus('${key}', 'acceptat')">Acceptă</div>
-              <div class="statusButton respins" onclick="actualizeazaStatus('${key}', 'respins')">Respinge</div>
-              <div class="deleteButton" onclick="stergeAplicatie('${key}')">Șterge Aplicația</div>
-            `;
-            container.appendChild(div);
-          }
+        // Setare status și culoare
+        let statusText = "ÎN AȘTEPTARE";
+        let statusColor = "#999";
+        if (app.status === "acceptat") {
+          statusText = "ACCEPTAT";
+          statusColor = "#4CAF50";
+        } else if (app.status === "respins") {
+          statusText = "RESPINS";
+          statusColor = "#f44336";
         }
-      });
+
+        div.innerHTML = `
+          <div style="text-align:center; font-size: 1.4em; font-weight:bold; padding: 10px; background-color:${statusColor}; color: white; border-radius: 6px; margin-bottom: 10px;">
+            STATUS: ${statusText}
+          </div>
+
+          <h3>Aplicație Departament: ${app.departament}</h3>
+
+          <h4>Informații OOC (Out of Character)</h4>
+          <p><strong>Nume (OOC):</strong> ${app.nume_ooc || 'N/A'}</p>
+          <p><strong>Vârstă (OOC):</strong> ${app.varsta_ooc || 'N/A'}</p>
+          <p><strong>Descriere Personală:</strong> ${app.descriere_ooc || 'N/A'}</p>
+          <p><strong>Ai citit regulamentul:</strong> ${app.regulament_ooc || 'N/A'}</p>
+
+          <h4>Informații IC (In Character)</h4>
+          <p><strong>Nume (IC):</strong> ${app.nume_ic || 'N/A'}</p>
+          <p><strong>Vârstă (IC):</strong> ${app.varsta_ic || 'N/A'}</p>
+          <p><strong>Descriere Personală:</strong> ${app.descriere_ic || 'N/A'}</p>
+          <p><strong>Beneficii pentru departament:</strong> ${app.beneficii_ic || 'N/A'}</p>
+
+          <h4>Date Contact:</h4>
+          <p><strong>Discord:</strong> ${app.discord || 'N/A'}</p>
+          <p><strong>Email:</strong> ${app.email || 'N/A'}</p>
+
+          <div class="statusButton acceptat" onclick="actualizeazaStatus('${key}', 'acceptat')">Acceptă</div>
+          <div class="statusButton respins" onclick="actualizeazaStatus('${key}', 'respins')">Respinge</div>
+          <div class="deleteButton" onclick="stergeAplicatie('${key}')">Șterge Aplicația</div>
+        `;
+
+        container.appendChild(div);
+      }
     }
+  });
+}
 
     // Funcție pentru a verifica dacă un string este JSON valid
     function isValidJson(str) {
