@@ -3,628 +3,326 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aplicații ModelV 3D Mov</title>
-  <link rel="icon" href="https://media.discordapp.net/attachments/1153942954650648657/1373555122256347136/ECSTASY.png?ex=682ad664&is=682984e4&hm=f7b4ea67bda50ac3016bf2c64ed1a58865cc80ed41ba80d70c2ceba132a22e77&=&format=webp&quality=lossless&width=32&height=32" type="image/png" />
+  <title>Aplicatie Departament</title>
+
   <style>
+    /* Stiluri de bază */
     body {
-      margin: 0;
-      padding: 20px;
-      background: linear-gradient(135deg, #2c003e, #6a00b8);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #e0d7f7;
-      perspective: 1000px;
-      overflow-x: hidden;
+      background: linear-gradient(135deg, #4b006e, #7f00ff);
+      color: #eee;
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
     }
 
-    a {
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: linear-gradient(145deg, #5a008a, #33004d);
+      padding: 30px 25px;
+      border-radius: 0 30px 30px 0;
+      color: #d3baff;
+      position: fixed;
+      height: 100vh;
+    }
+
+    .sidebar img {
+      width: 160px;
       display: block;
+      margin: 0 auto 20px auto;
+      border-radius: 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 2.7rem;
       text-align: center;
-      color: #c8a2ff;
-      font-weight: bold;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar ul li {
+      margin: 22px 0;
+    }
+
+    .sidebar ul li a {
+      color: #d3baff;
       text-decoration: none;
-      transition: color 0.3s ease;
-      text-shadow: 0 0 10px #c8a2ff;
+      font-size: 1.3rem;
+      display: block;
     }
 
-    a:hover {
-      color: #f0dfff;
-      text-shadow: 0 0 20px #f0dfff;
+    .sidebar ul li a:hover {
+      color: #fff;
     }
 
-    h1, h2 {
-      text-align: center;
-      color: #d2b3ff;
-      text-shadow: 0 0 15px #9e66ff;
-      transform: translateZ(30px);
+    /* Main Content */
+    .main {
+      margin-left: 300px;
+      padding: 40px 50px;
+      flex: 1;
     }
 
-    form {
-      background: #3a006f;
-      border-radius: 15px;
-      max-width: 600px;
-      margin: 0 auto 50px auto;
-      padding: 30px 40px;
-      box-shadow:
-        0 0 20px #9e66ff,
-        inset 0 0 40px #6a00b8;
-      transform-style: preserve-3d;
-      transform: rotateX(8deg) rotateY(-8deg);
-      transition: transform 0.4s ease;
-    }
-
-    form:hover {
-      transform: rotateX(0deg) rotateY(0deg);
-      box-shadow:
-        0 0 40px #b089ff,
-        inset 0 0 60px #7a00d8;
-    }
-
+    /* Formulare */
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: 600;
-      text-shadow: 0 0 6px #b999ff;
+      margin-top: 10px;
+      font-weight: bold;
     }
 
     input, textarea, select {
       width: 100%;
-      padding: 10px 12px;
-      margin-top: 8px;
-      border-radius: 10px;
-      border: none;
-      background-color: #4c0080;
-      color: #ddd;
-      font-size: 1rem;
-      box-shadow:
-        0 0 8px #7a00d8 inset;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      background-color: #5c00b0;
-      box-shadow:
-        0 0 12px #c19aff,
-        0 0 15px #d0b3ff inset;
-      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      font-size: 1em;
     }
 
     textarea {
       resize: vertical;
-      min-height: 80px;
     }
 
     button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 15px;
-      background: linear-gradient(145deg, #a366ff, #6a00b8);
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #b15eff;
       border: none;
-      border-radius: 12px;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
+      border-radius: 10px;
+      color: white;
       cursor: pointer;
-      box-shadow:
-        0 5px 15px #5b0099;
-      transition: background 0.3s ease, transform 0.15s ease;
-      transform-style: preserve-3d;
+      font-weight: bold;
+      font-size: 1.1em;
     }
 
     button:hover {
-      background: linear-gradient(145deg, #c39aff, #9a00ff);
-      transform: translateZ(10px);
-      box-shadow:
-        0 8px 25px #8e00ff;
+      background: #9c4dcc;
     }
 
-    .btn-respinge {
-      background: linear-gradient(145deg, #ff4a4a, #b30000);
-      box-shadow: 0 5px 15px #7f0000;
-      margin-left: 0;
+    /* Carduri aplicatii */
+    .aplicatie {
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .aplicatie h3 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+
+    .aplicatie p {
+      margin-bottom: 10px;
+    }
+
+    .statusButton {
+      padding: 8px 15px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
       margin-top: 10px;
     }
 
-    .btn-respinge:hover {
-      background: linear-gradient(145deg, #ff6a6a, #e60000);
-      box-shadow: 0 8px 25px #d40000;
-      transform: translateZ(10px);
+    .statusButton.acceptat {
+      background-color: #4CAF50;
+      color: white;
     }
 
-    .aplicatie {
-      background: #32006a;
-      border-left: 6px solid #c19aff;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 650px;
-      border-radius: 15px;
-      box-shadow:
-        0 0 15px #b399ff,
-        inset 0 0 10px #5c00b0;
-      transform-style: preserve-3d;
-      transform: rotateX(5deg) rotateY(5deg);
-      transition: transform 0.3s ease;
+    .statusButton.respins {
+      background-color: #f44336;
+      color: white;
     }
 
-    .aplicatie:hover {
-      transform: rotateX(0deg) rotateY(0deg);
-      box-shadow:
-        0 0 30px #d0b3ff,
-        inset 0 0 20px #8a00ff;
-    }
-
-    .rol {
-      font-style: italic;
-      color: #c9aaff;
-      text-shadow: 0 0 10px #8e00ff;
-    }
-
-    .status {
-      margin-top: 12px;
-      font-weight: 700;
-      text-shadow: 0 0 8px #aa77ff;
-    }
-
-    /* Overlay parolă */
-    #passwordOverlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(50, 0, 100, 0.9);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(6px);
-      perspective: 1000px;
-    }
-
-    #passwordBox {
-      background: #4a0080;
-      padding: 30px 40px;
-      border-radius: 20px;
-      text-align: center;
-      width: 360px;
-      box-shadow:
-        0 0 30px #a366ff,
-        inset 0 0 25px #6a00b8;
-      transform-style: preserve-3d;
-      transform: rotateX(10deg);
-    }
-
-    #passwordBox h3 {
-      color: #d0b3ff;
-      text-shadow: 0 0 20px #a366ff;
-      margin-bottom: 15px;
-    }
-
-    #passwordBox input {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      width: 100%;
-      background-color: #5c00b0;
-      color: #eee;
-      box-shadow: inset 0 0 15px #b999ff;
-      transition: background-color 0.3s ease;
-    }
-
-    #passwordBox input:focus {
-      background-color: #7a00d8;
-      outline: none;
-      box-shadow: 0 0 20px #d0b3ff;
-      color: #fff;
-    }
-
-    #passwordBox button {
-      margin-top: 25px;
-      padding: 12px 0;
-      width: 100%;
-      background: linear-gradient(145deg, #a366ff, #6a00b8);
-      border: none;
-      border-radius: 12px;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
+    .deleteButton {
+      background-color: #ff9800;
+      color: white;
+      padding: 8px 15px;
+      font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
-      box-shadow:
-        0 5px 15px #5b0099;
-      transition: background 0.3s ease, transform 0.15s ease;
+      border: none;
+      margin-top: 10px;
     }
 
-    #passwordBox button:hover {
-      background: linear-gradient(145deg, #c39aff, #9a00ff);
-      transform: translateZ(10px);
-      box-shadow: 0 8px 25px #8e00ff;
+    /* Ascunde elemente */
+    .hidden {
+      display: none;
     }
 
-    #passwordCancel {
-      background: linear-gradient(145deg, #ff4a4a, #b30000);
-      margin-top: 15px;
-    }
-
-    #passwordCancel:hover {
-      background: linear-gradient(145deg, #ff6a6a, #e60000);
-      box-shadow: 0 8px 25px #d40000;
-      transform: translateZ(10px);
-    }
-
-    #passwordMessage {
-      margin-top: 15px;
-      min-height: 22px;
-      color: #ff6a6a;
-      font-weight: 700;
-      text-shadow: 0 0 10px #ff4a4a;
-    }
   </style>
 </head>
+
 <body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="https://media.discordapp.net/attachments/1153942954650648657/1373540945961680907/ECSTASY.png?ex=682ac930&is=682977b0&hm=dd74e29dde4609020f2d9a57289e79ec740f8525d711510f86ff5a37f561170b&=&format=webp&quality=lossless&width=958&height=958" alt="Ecstasy Logo" />
+    <h2>Ecstasy</h2>
+    <ul>
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="regulament.html">Regulament</a></li>
+      <li><a href="aplicatii.html">Aplicații</a></li>
+      <li><a href="update.html">Update-uri Recente</a></li>
+      <li><a href="settings.html">Setări</a></li>
+    </ul>
+  </div>
 
-  <a href="regulament.html">INTOARCE-TE LA MENIUL PRINCIPAL</a>
+  <div class="main">
+    <h2>Formular Aplicatie Departament</h2>
+    <form id="departamentForm">
+      <!-- Secțiunea OOC (Out of Character) -->
+      <h3>Informații OOC (Out of Character)</h3>
+      <label for="nume_ooc">Nume: <input name="nume_ooc" required></label>
+      <label for="varsta_ooc">Vârsta: <input name="varsta_ooc" type="number" required></label>
+      <label for="descriere_ooc">Descriere Personală: <textarea name="descriere_ooc" required></textarea></label>
+      <label for="regulament_ooc">Ai citit regulamentul acestui departament? <select name="regulament_ooc" required>
+        <option value="Da">Da</option>
+        <option value="Nu">Nu</option>
+      </select></label>
 
-  <h1>Trimite Aplicație</h1>
-  <form id="aplicatieForm">
-    <h2>Informații Out of Character (OOC)</h2>
-    <label for="nume_ooc">Nume:</label>
-    <input type="text" id="nume_ooc" required />
+      <!-- Secțiunea IC (In Character) -->
+      <h3>Informații IC (In Character)</h3>
+      <label for="nume_ic">Nume: <input name="nume_ic" required></label>
+      <label for="varsta_ic">Vârsta: <input name="varsta_ic" type="number" required></label>
+      <label for="descriere_ic">Descriere Personală: <textarea name="descriere_ic" required></textarea></label>
+      <label for="beneficii_ic">Ce beneficii poți aduce acestui departament? <textarea name="beneficii_ic" required></textarea></label>
 
-    <label for="varsta_ooc">Vârstă:</label>
-    <input type="number" id="varsta_ooc" required min="10" max="120" />
+      <!-- Date de contact -->
+      <label for="discord">Discord (Obligatoriu): <input name="discord" required></label>
+      <label for="email">Email: <input name="email" type="email" required></label>
 
-    <label for="descriere_ooc">Descriere personală:</label>
-    <textarea id="descriere_ooc" required></textarea>
+      <label for="departament">Alege Departamentul: 
+        <select name="departament" id="departamentSelect" required>
+          <option value="Politie">Politie</option>
+          <option value="Medici">Medici</option>
+          <option value="Mecanici">Mecanici</option>
+        </select>
+      </label>
 
-    <h2>Informații In Character (IC)</h2>
-    <label for="nume_ic">Nume (IC):</label>
-    <input type="text" id="nume_ic" required />
+      <button type="submit">Trimite Aplicatia</button>
+    </form>
 
-    <label for="varsta_ic">Vârstă (IC):</label>
-    <input type="number" id="varsta_ic" required min="10" max="120" />
-
-    <label for="descriere_ic">Descriere personală (IC):</label>
-    <textarea id="descriere_ic" required></textarea>
-
-    <label for="motivatie_ic">De ce dorești să faci parte din acest departament (IC):</label>
-    <textarea id="motivatie_ic" required></textarea>
-
-    <label for="capabilitate_ic">Te consideri capabil pentru acest job (IC):</label>
-    <textarea id="capabilitate_ic" required></textarea>
-
-    <label for="departament">Departament:</label>
-    <select id="departament" required>
-      <option value="Poliție">Poliție</option>
-      <option value="SMURD">SMURD</option>
+    <h2 style="margin-top:40px;">Lider Login</h2>
+    <select id="departamentLogin">
+      <option value="Politie">Politie</option>
+      <option value="Medici">Medici</option>
+      <option value="Mecanici">Mecanici</option>
     </select>
+    <input id="adminPass" type="password" placeholder="Introdu parola lider">
+    <button onclick="adminLogin()">Login</button>
 
-    <button type="submit">Trimite Aplicația</button>
-  </form>
-
-  <h2>Aplicații Publice</h2>
-  <div id="listaAplicatii"></div>
-
-  <!-- Overlay pentru parola -->
-  <div id="passwordOverlay">
-    <div id="passwordBox">
-      <h3 id="passwordTitle">Introduceți parola:</h3>
-      <input type="password" id="passwordInput" autocomplete="off" />
-      <button id="passwordSubmit">Trimite</button>
-      <div id="passwordMessage"></div>
-      <button id="passwordCancel">Anulează</button>
+    <div id="liderPanel" class="lider-panel hidden">
+      <h2>Aplicatii Departament</h2>
+      <button onclick="afiseazaAplicatii()">Vezi Aplicatii</button>
+      <div id="listaAplicatii"></div>
     </div>
   </div>
 
   <script>
-    const form = document.getElementById('aplicatieForm');
-    const listaAplicatii = document.getElementById('listaAplicatii');
+    const paroleDepartamente = {
+      "Politie": "parolaPolitie",
+      "Medici": "parolaMedici",
+      "Mecanici": "parolaMecanici"
+    };
 
-    // Overlay parole
-    const passwordOverlay = document.getElementById('passwordOverlay');
-    const passwordInput = document.getElementById('passwordInput');
-    const passwordSubmit = document.getElementById('passwordSubmit');
-    const passwordCancel = document.getElementById('passwordCancel');
-    const passwordMessage = document.getElementById('passwordMessage');
-
-    // Parola secretă pentru respingere
-    const ADMIN_PASSWORD = 'ModelV2025!'; // modifică după nevoie
-
-    // Lista aplicațiilor
-    let aplicatii = JSON.parse(localStorage.getItem('aplicatii')) || [];
-
-    // Funcție de afișare a aplicațiilor
-    function afiseazaAplicatii() {
-      listaAplicatii.innerHTML = '';
-      if (aplicatii.length === 0) {
-        listaAplicatii.innerHTML = '<p style="text-align:center; font-style: italic; color:#b3a0ff;">Nu există aplicații încă.</p>';
-        return;
-      }
-
-      aplicatii.forEach((app, index) => {
-        const div = document.createElement('div');
-        div.className = 'aplicatie';
-
-        div.innerHTML = `
-          <strong>OOC</strong><br/>
-          Nume: ${escapeHtml(app.nume_ooc)}<br/>
-          Vârstă: ${escapeHtml(app.varsta_ooc)}<br/>
-          Descriere: ${escapeHtml(app.descriere_ooc)}<br/><br/>
-
-          <strong>IC</strong><br/>
-          Nume: ${escapeHtml(app.nume_ic)}<br/>
-          Vârstă: ${escapeHtml(app.varsta_ic)}<br/>
-          Descriere: ${escapeHtml(app.descriere_ic)}<br/>
-          Motivație: ${escapeHtml(app.motivatie_ic)}<br/>
-          Capabilitate: ${escapeHtml(app.capabilitate_ic)}<br/>
-          Departament: ${escapeHtml(app.departament)}<br/>
-          <span class="status">Status: ${escapeHtml(app.status)}</span><br/><br/>
-
-          <button class="btn-respinge" data-index="${index}">Respinge</button>
-        `;
-
-        listaAplicatii.appendChild(div);
-      });
-
-      // Adaugă event listener pentru butoane respinge
-      document.querySelectorAll('.btn-respinge').forEach(btn => {
-        btn.onclick = (e) => {
-          const idx = e.target.getAttribute('data-index');
-          deschideParola(idx);
-        };
-      });
-    }
-
-    // Escapare HTML simplă
-    function escapeHtml(text) {
-      if (!text) return '';
-      return text.replace(/[&<>"']/g, function(m) {
-        return {'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[m];
-      });
-    }
-
-    // Trimite aplicația
-    form.addEventListener('submit', e => {
+    // Formularul de aplicație departament
+    document.getElementById("departamentForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
-      const aplicatieNoua = {
-        nume_ooc: form.nume_ooc.value.trim(),
-        varsta_ooc: form.varsta_ooc.value.trim(),
-        descriere_ooc: form.descriere_ooc.value.trim(),
-        nume_ic: form.nume_ic.value.trim(),
-        varsta_ic: form.varsta_ic.value.trim(),
-        descriere_ic: form.descriere_ic.value.trim(),
-        motivatie_ic: form.motivatie_ic.value.trim(),
-        capabilitate_ic: form.capabilitate_ic.value.trim(),
-        departament: form.departament.value,
-        status: 'În așteptare'
-      };
-
-      aplicatii.push(aplicatieNoua);
-      localStorage.setItem('aplicatii', JSON.stringify(aplicatii));
-
-      afiseazaAplicatii();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+      data.status = "In asteptare";
+      data.departament = document.getElementById("departamentSelect").value;
+      localStorage.setItem(Date.now(), JSON.stringify(data));
       form.reset();
-      alert('Aplicația ta a fost trimisă cu succes!');
     });
 
-    // Deschide overlay parolă pentru respingere
-    let indexAplicatieDeRespins = null;
-    function deschideParola(index) {
-      indexAplicatieDeRespins = index;
-      passwordInput.value = '';
-      passwordMessage.textContent = '';
-      passwordOverlay.style.display = 'flex';
-      passwordInput.focus();
-    }
+    // Funcția de login pentru lider
+    function adminLogin() {
+      const departamentSelect = document.getElementById("departamentLogin").value;
+      const input = document.getElementById("adminPass").value;
+      const parolaCorecta = paroleDepartamente[departamentSelect];
 
-    // Închide overlay parolă
-    function inchideParola() {
-      passwordOverlay.style.display = 'none';
-      indexAplicatieDeRespins = null;
-    }
-
-    // Confirmare parolă și respingere aplicație
-    passwordSubmit.onclick = () => {
-      const parola = passwordInput.value;
-      if (parola === ADMIN_PASSWORD) {
-        if (indexAplicatieDeRespins !== null) {
-          aplicatii[indexAplicatieDeRespins].status = 'Respinsă';
-          localStorage.setItem('aplicatii', JSON.stringify(aplicatii));
-          afiseazaAplicatii();
-          inchideParola();
-          alert('Aplicația a fost respinsă.');
-        }
+      if (input === parolaCorecta) {
+        document.getElementById("liderPanel").classList.remove("hidden");
+        afiseazaAplicatii(departamentSelect);
       } else {
-        passwordMessage.textContent = 'Parolă incorectă!';
-        passwordInput.value = '';
-        passwordInput.focus();
+        alert("Parola gresita!");
       }
-    };
+    }
 
-    passwordCancel.onclick = () => {
-      inchideParola();
-    };
+    // Funcția de vizualizare aplicații
+    function afiseazaAplicatii(departament) {
+      const container = document.getElementById("listaAplicatii");
+      container.innerHTML = ""; // Resetarea containerului înainte de a-l popula
 
-    // Închidere overlay la apăsarea tastei Escape
-    window.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && passwordOverlay.style.display === 'flex') {
-        inchideParola();
+      Object.entries(localStorage).forEach(([key, val]) => {
+        if (isValidJson(val)) {
+          const app = JSON.parse(val);
+          if (app.departament === departament) {
+            const div = document.createElement("div");
+            div.className = "aplicatie";
+            const statusClass = app.status === "acceptat" ? "acceptat" : app.status === "respins" ? "respins" : "";
+
+            // Structura HTML a aplicației conform formularului
+            div.innerHTML = `
+              <h3>Aplicație Departament: ${app.departament}</h3>
+              
+              <h4>Informații OOC (Out of Character)</h4>
+              <p><strong>Nume (OOC):</strong> ${app.nume_ooc || 'N/A'}</p>
+              <p><strong>Vârstă (OOC):</strong> ${app.varsta_ooc || 'N/A'}</p>
+              <p><strong>Descriere Personală:</strong> ${app.descriere_ooc || 'N/A'}</p>
+              <p><strong>Ai citit regulamentul:</strong> ${app.regulament_ooc || 'N/A'}</p>
+
+              <h4>Informații IC (In Character)</h4>
+              <p><strong>Nume (IC):</strong> ${app.nume_ic || 'N/A'}</p>
+              <p><strong>Vârstă (IC):</strong> ${app.varsta_ic || 'N/A'}</p>
+              <p><strong>Descriere Personală:</strong> ${app.descriere_ic || 'N/A'}</p>
+              <p><strong>Beneficii pentru departament:</strong> ${app.beneficii_ic || 'N/A'}</p>
+
+              <h4>Date Contact:</h4>
+              <p><strong>Discord:</strong> ${app.discord || 'N/A'}</p>
+              <p><strong>Email:</strong> ${app.email || 'N/A'}</p>
+
+              <div class="statusButton ${statusClass}" onclick="actualizeazaStatus('${key}', 'acceptat')">Acceptă</div>
+              <div class="statusButton respins" onclick="actualizeazaStatus('${key}', 'respins')">Respinge</div>
+              <div class="deleteButton" onclick="stergeAplicatie('${key}')">Șterge Aplicația</div>
+            `;
+            container.appendChild(div);
+          }
+        }
+      });
+    }
+
+    // Funcție pentru a verifica dacă un string este JSON valid
+    function isValidJson(str) {
+      try {
+        JSON.parse(str);
+        return true;
+      } catch (e) {
+        return false;
       }
-    });
+    }
 
-    // La încărcarea paginii
-    afiseazaAplicatii();
+    // Funcție pentru a actualiza statusul aplicației
+    function actualizeazaStatus(key, status) {
+      const app = JSON.parse(localStorage.getItem(key));
+      app.status = status;
+      localStorage.setItem(key, JSON.stringify(app));
+      afiseazaAplicatii(document.getElementById("departamentLogin").value);
+    }
+
+    // Funcție pentru a șterge aplicația
+    function stergeAplicatie(key) {
+      localStorage.removeItem(key);
+      afiseazaAplicatii(document.getElementById("departamentLogin").value);
+    }
   </script>
-
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin Aplicații - Mov 3D</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap');
-
-    body {
-      margin: 0;
-      padding: 30px;
-      background: linear-gradient(135deg, #2c003e, #6a00b8);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #e0d7f7;
-      perspective: 1200px;
-      overflow-x: hidden;
-      user-select: none;
-    }
-
-    #loginDiv, #adminDiv {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #3a006f;
-      border-radius: 20px;
-      padding: 30px 40px;
-      box-shadow:
-        0 0 30px #9e66ff,
-        inset 0 0 40px #6a00b8;
-      transform-style: preserve-3d;
-      transform: rotateX(8deg) rotateY(-8deg);
-      transition: transform 0.4s ease;
-    }
-
-    #loginDiv:hover, #adminDiv:hover {
-      transform: rotateX(0deg) rotateY(0deg);
-      box-shadow:
-        0 0 50px #c399ff,
-        inset 0 0 70px #8a00ff;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #d2b3ff;
-      text-shadow: 0 0 15px #9e66ff;
-      margin-bottom: 25px;
-      transform: translateZ(40px);
-    }
-
-    input[type="password"] {
-      width: 100%;
-      padding: 12px 15px;
-      font-size: 1.1rem;
-      border-radius: 15px;
-      border: none;
-      background-color: #4c0080;
-      color: #eee;
-      box-shadow: inset 0 0 15px #7a00d8;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    input[type="password"]:focus {
-      outline: none;
-      background-color: #5c00b0;
-      box-shadow:
-        0 0 20px #d0b3ff,
-        inset 0 0 25px #b999ff;
-      color: #fff;
-    }
-
-    button {
-      display: block;
-      width: 100%;
-      margin-top: 25px;
-      padding: 15px 0;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: #fff;
-      background: linear-gradient(145deg, #a366ff, #6a00b8);
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      box-shadow:
-        0 5px 15px #5b0099;
-      transition: background 0.3s ease, transform 0.15s ease;
-      transform-style: preserve-3d;
-    }
-
-    button:hover {
-      background: linear-gradient(145deg, #c39aff, #9a00ff);
-      transform: translateZ(10px);
-      box-shadow:
-        0 8px 25px #8e00ff;
-    }
-
-    #loginError {
-      color: #ff6a6a;
-      font-weight: 700;
-      text-align: center;
-      margin-top: 15px;
-      text-shadow: 0 0 10px #ff4a4a;
-    }
-
-    /* Tabel stilizat 3D */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      background: #32006a;
-      border-radius: 15px;
-      box-shadow:
-        0 0 25px #b399ff,
-        inset 0 0 20px #5c00b0;
-      transform-style: preserve-3d;
-      transform: rotateX(5deg) rotateY(5deg);
-      transition: transform 0.3s ease;
-    }
-
-    table:hover {
-      transform: rotateX(0deg) rotateY(0deg);
-      box-shadow:
-        0 0 40px #d0b3ff,
-        inset 0 0 35px #8a00ff;
-    }
-
-    th, td {
-      padding: 15px;
-      border: 1px solid #5c00b0;
-      color: #e0d7f7;
-      text-align: center;
-      font-weight: 600;
-      text-shadow: 0 0 8px #9e66ff;
-    }
-
-    th {
-      background: linear-gradient(145deg, #6a00b8, #9e66ff);
-      box-shadow: 0 2px 10px #7a00d8;
-    }
-
-    tr:nth-child(even) {
-      background: #4c0080;
-    }
-
-    tr:hover {
-      background: #7a00d8;
-      box-shadow: inset 0 0 15px #c39aff;
-    }
-
-    /* Butoane din tabel */
-    .action-btn {
-      background: linear-gradient(145deg, #a366ff, #6a00b8);
-      padding: 8px 15px;
-      border-radius: 12px;
-      border: none;
-      color: #fff;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 3px 8px #5b0099;
-      transition: background 0.3s ease, transform 0.15s ease;
-      margin: 0 5px;
-    }
-
-    .action-btn:hover {
-      background: linear-gradient(145deg, #c39aff, #9a00ff);
-      transform: translateZ(8px);
-      box-shadow: 0 6px 18px #8e00ff;
-    }
-
- 
